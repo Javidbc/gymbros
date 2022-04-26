@@ -55,7 +55,17 @@ class Usuario
      */
     private $contrasenia;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @var string
+     */
+    private $foto;
 
+    /**
+     * @ORM\Column(type="boolean")
+     * @var boolean
+     */
+    private $activado;
 
     /**
      * @ORM\Column(type="boolean")
