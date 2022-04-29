@@ -44,6 +44,12 @@ class Usuario
     private $telefono;
 
     /**
+     * @ORM\Column (type="datetime")
+     * @var \DateTime
+     */
+    private $fechaNacimiento;
+
+    /**
      * @ORM\Column(type="string", length=50)
      * @var string
      */
@@ -56,8 +62,8 @@ class Usuario
     private $contrasenia;
 
     /**
-     * @ORM\Column(type="string", length=50)
-     * @var string
+     * @ORM\Column(type="blob")
+     * @var resource
      */
     private $foto;
 
