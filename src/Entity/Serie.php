@@ -43,4 +43,19 @@ class Serie
      */
     private $fechaSerie;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Ejercicio")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Ejercicio
+     */
+    private $ejercicio;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Usuario
+     */
+    private $usuario;
+
+
 }
