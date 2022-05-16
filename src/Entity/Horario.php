@@ -22,6 +22,8 @@ class Horario
      * @ORM\Column (type="string")
      * @var string
      */
-    private $intervaloHoras;
+    private $hora;
+
+
 
 }
