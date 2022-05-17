@@ -16,6 +16,7 @@ class Ejercicio
     public  function __construct(){
         $this->aparatos = new ArrayCollection();
         $this->tablas = new ArrayCollection();
+        $this->series = new ArrayCollection();
     }
 
     /**
@@ -58,8 +59,9 @@ class Ejercicio
 
     /**
      * @ORM\OneToMany(targetEntity="Serie", mappedBy="ejercicio")
+     * @var Serie[]|Collection
      */
-    private $serie;
+    private $series;
 
     /**
      * @ORM\ManyToMany(targetEntity="Aparato", mappedBy="ejercicio")
