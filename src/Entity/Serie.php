@@ -44,14 +44,14 @@ class Serie
     private $fechaSerie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ejercicio")
+     * @ORM\ManyToOne(targetEntity="Ejercicio",inversedBy="serie")
      * @ORM\JoinColumn(nullable=false)
      * @var Ejercicio
      */
     private $ejercicio;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Usuario")
+     * @ORM\ManyToOne(targetEntity="Usuario",inversedBy="serie")
      * @ORM\JoinColumn(nullable=false)
      * @var Usuario
      */
