@@ -50,7 +50,7 @@ class Tabla
     private  $ejercicios;
 
     /**
-     * @ORM\ManyToOne (targetEntity="Usuario",inversedBy="tablasCreada")
+     * @ORM\ManyToOne (targetEntity="Usuario",inversedBy="tablasCreadas")
      * @var Usuario
      */
     private $creador;
