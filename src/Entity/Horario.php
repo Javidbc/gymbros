@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Horario
 {
+    public function  __construct()
+    {
+        $this->reservasHora = new ArrayCollection();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -23,6 +29,12 @@ class Horario
      * @var string
      */
     private $hora;
+
+    /**
+     * @ORM\OneToMany (targetEntity="Reserva",mappedBy="horario")
+     * @var Reserva[]|Collection
+     */
+    private $reservasHora;
 
 
 

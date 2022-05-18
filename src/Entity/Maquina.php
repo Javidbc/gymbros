@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Maquina
 {
+
+    public function  __construct()
+    {
+        $this->reservas = new ArrayCollection();
+
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -30,4 +38,10 @@ class Maquina
      * @var Aparato
      */
     private $aparato;
+
+    /**
+     * @ORM\OneToMany (targetEntity="Reserva",mappedBy="maquina")
+     * @var Reserva[]|Collection
+     */
+    private $reservas;
 }

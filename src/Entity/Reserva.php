@@ -27,6 +27,24 @@ class Reserva
      */
     private $fechaReserva;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Maquina",inversedBy="reservas")
+     * @var Maquina
+     */
+    private $maquina;
+
+    /**
+     * @ORM\ManyToOne (targetEntity="Horario",inversedBy="reservasHora")
+     * @var Horario
+     */
+    private $horario;
+
+    /**
+     * @ORM\ManyToOne (targetEntity="Usuario",inversedBy="reservasUsuario")
+     * @var Usuario
+     */
+    private $usuario;
+
 
 
 }
