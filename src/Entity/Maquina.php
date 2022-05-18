@@ -24,4 +24,10 @@ class Maquina
      * @var int
      */
     private $numeroMaquina;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Aparato",inversedBy="maquinas")
+     * @var Aparato
+     */
+    private $aparato;
 }

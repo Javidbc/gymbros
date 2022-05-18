@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Tabla
 {
+
+    public function __construct()
+    {
+        $this->ejercicios= new ArrayCollection();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -34,4 +41,10 @@ class Tabla
      * @var boolean
      */
     private $vistoBueno;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Ejercicio",inversedBy="tablas")
+     * @var Ejercicio[]|Collection
+     */
+    private  $ejercicios;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -85,7 +86,11 @@ class Usuario
      */
     private $esMonitor;
 
-
+    /**
+     * @ORM\OneToMany(targetEntity="Serie", mappedBy="usuario")
+     * @var Serie[]|Collection
+     */
+    private $series;
 
 
 

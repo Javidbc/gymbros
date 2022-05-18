@@ -45,7 +45,7 @@ class Aparato
     private $ejercicios;
 
     /**
-     * @ORM\OneToMany(targetEntity="Maquina",mappedBy="maquinas")
+     * @ORM\OneToMany(targetEntity="Maquina",mappedBy="aparato")
      * @var Maquina[]|Collection
      */
     private $maquinas;

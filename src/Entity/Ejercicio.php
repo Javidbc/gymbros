@@ -64,13 +64,13 @@ class Ejercicio
     private $series;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Aparato", mappedBy="ejercicio")
+     * @ORM\ManyToMany(targetEntity="Aparato", mappedBy="ejercicios")
      * @var Aparato[]|Collection
      */
     private $aparatos;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tabla", mappedBy="ejercicio")
+     * @ORM\ManyToMany(targetEntity="Tabla", mappedBy="ejercicios")
      * @var Tabla[]|Collection
      */
     private $tablas;
