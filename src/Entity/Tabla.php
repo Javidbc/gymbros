@@ -15,6 +15,7 @@ class Tabla
     public function __construct()
     {
         $this->ejercicios= new ArrayCollection();
+        $this->usuarios= new ArrayCollection();
     }
     /**
      * @ORM\Id()
@@ -47,4 +48,16 @@ class Tabla
      * @var Ejercicio[]|Collection
      */
     private  $ejercicios;
+
+    /**
+     * @ORM\ManyToOne (targetEntity="Usuario",inversedBy="tablasCreada")
+     * @var Usuario
+     */
+    private $creador;
+
+    /**
+     * @ORM\OneToMany (targetEntity="Usuario",mappedBy="miTabla")
+     * @var Usuario[]|Collection
+     */
+    private $usuarios;
 }

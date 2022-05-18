@@ -17,6 +17,7 @@ class Usuario
     {
         $this->series=new ArrayCollection();
         $this->reservasUsuario = new ArrayCollection();
+        $this->tablasCreada = new ArrayCollection();
     }
     /**
      * @ORM\Id()
@@ -103,6 +104,19 @@ class Usuario
      * @var Usuario[]|Collection
      */
     private $reservasUsuario;
+
+    /**
+     * @ORM\OneToMany (targetEntity="Tabla",mappedBy="creador")
+     * @var Tabla[]|Collection
+     */
+    private $tablasCreada;
+
+    /**
+     * @ORM\ManyToOne  (targetEntity="Tabla",inversedBy="tabla")
+     * @var Tabla
+     */
+    private $miTabla;
+
 
 
 
