@@ -52,12 +52,6 @@ class Ejercicio
     private $url;
 
     /**
-     * @ORM\Column(type="boolean")
-     * @var boolean
-     */
-    private $reservable;
-
-    /**
      * @ORM\OneToMany(targetEntity="Serie", mappedBy="ejercicio")
      * @var Serie[]|Collection
      */
