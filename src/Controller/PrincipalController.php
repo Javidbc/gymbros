@@ -15,6 +15,6 @@ class PrincipalController extends AbstractController
      */
     public function principal(): Response
     {
-        return $this->render('base.html.twig');
+        return $this->render('Principal/Principal.html.twig');
     }
 }

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/layout.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <nav class="menuLayout">
+        <div class="menuLayout_izquierda">
+            <img src="{{ asset('Imagenes/GYMBROS(1).png') }}">
+        </div>
+        <div class="menuLayout_derecha">
+
+        </div>
+        <ul>
+            <li><a>Ejercicios</a></li>
+            <li><a>Tablas</a></li>
+            <li><a>Calendario</a></li>
+            <li><a>Entreno diario</a></li>
+            <li><a>Horarios</a></li>
+            <li><a>Usuarios</a></li>
+
+        </ul>
+
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+{% endblock %}
+
