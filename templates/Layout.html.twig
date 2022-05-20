@@ -1,28 +1,41 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
+    <link href="{{ asset('Css/reset.css') }}" type="text/css" rel="stylesheet" />
     <link href="{{ asset('Css/layout.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block body %}
     <nav class="menuLayout">
         <div class="menuLayout_izquierda">
-            <img src="{{ asset('Imagenes/GYMBROS(1).png') }}">
+            <figure>
+                <a href="{{ path('principal') }}"><img src="{{ asset('Imagenes/logo.png') }}" alt=""></a>
+            </figure>
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-dumbbell"></i>Ejercicios</a></li>
+                <li><a href="#"><i class="fa-solid fa-table-list"></i>Tablas</a></li>
+                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Calendario</a></li>
+                <li><a href="#"><i class="fa-solid fa-fire-flame-curved"></i>Entreno diario</a></li>
+                <li><a href="#"><i class="fa-solid fa-clock"></i>Horarios</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i>Usuarios</a></li>
+
+            </ul>
         </div>
         <div class="menuLayout_derecha">
+            <p><a href="#">Iniciar Sesión</a></p>
+            <p><a href="#">Cerrar Sesión</a></p>
+            <figure>
+                <a href="#"><img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt=""></a>
+            </figure>
 
         </div>
-        <ul>
-            <li><a>Ejercicios</a></li>
-            <li><a>Tablas</a></li>
-            <li><a>Calendario</a></li>
-            <li><a>Entreno diario</a></li>
-            <li><a>Horarios</a></li>
-            <li><a>Usuarios</a></li>
 
-        </ul>
 
     </nav>
-    <div class="container">
+    <footer>
+        <p><i class="fa-solid fa-copyright"></i>Derechos reservados</p>
+        <p>Javier del Bas Corral</p>
+    </footer>
+    <div class="contenido">
         {% block content %}{% endblock %}
     </div>
 {% endblock %}
