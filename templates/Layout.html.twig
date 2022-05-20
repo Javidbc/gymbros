@@ -31,12 +31,12 @@
 
 
     </nav>
+    <div class="contenido">
+        {% block content %}{% endblock %}
+    </div>
     <footer>
         <p><i class="fa-solid fa-copyright"></i>Derechos reservados</p>
         <p>Javier del Bas Corral</p>
     </footer>
-    <div class="contenido">
-        {% block content %}{% endblock %}
-    </div>
 {% endblock %}
 
