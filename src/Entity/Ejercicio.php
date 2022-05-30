@@ -77,15 +77,6 @@ class Ejercicio
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     * @return Ejercicio
-     */
-    public function setId(int $id): Ejercicio
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return string

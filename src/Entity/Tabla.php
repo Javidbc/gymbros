@@ -69,15 +69,6 @@ class Tabla
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     * @return Tabla
-     */
-    public function setId(int $id): Tabla
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return string
