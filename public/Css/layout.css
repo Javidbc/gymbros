@@ -1,5 +1,5 @@
 body{
-    background-color: #E4FFC0;
+    background-color: #ebf3e8;
     display: flex;
     flex-direction: column;
 }
@@ -8,7 +8,7 @@ body{
 }
 /*menu navegacion*/
 .menuLayout{
-    background-color: #490A8C;
+    background-color: rgba(71, 15, 110);
     color: white;
     display: flex;
     justify-content: space-between;

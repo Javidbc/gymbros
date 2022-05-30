@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/ejercicios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Listado de ejercicios por orden alfabético</h1>
+        <div class="cartas">
+            {%  for ejercicio in ejercicios %}
+                <div class="carta">
+                    <p class="carta_titulo">{{ ejercicio.nombre }}</p>
+                    <p class="carta_grupoMuscular">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
+                    <p class="carta_descripcion">{{ ejercicio.descripcion }}</p>
+                    <iframe width="560" height="315" src="{{ ejercicio.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            {% else %}
+                <h2>No hay ejercicios</h2>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

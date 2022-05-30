@@ -1,0 +1,49 @@
+h1{
+    font-family:Algerian;
+    font-size: 2.5em;
+    padding: 1em;
+
+}
+.cartas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.carta{
+    border-radius: 10%;
+    background-color: rgba(71, 15, 110);
+    margin: 1em;
+    padding: 0.5em;
+    width: 22%;
+    padding-bottom: 3em;
+    transition: 1s;
+
+}
+.carta:hover{
+    transition: 1s;
+    filter: drop-shadow(10px 10px 5px grey);
+}
+
+.carta_titulo{
+    font-size: 2em;
+    font-style: oblique;
+    text-align: center;
+}
+
+.carta_grupoMuscular{
+    font-weight: bold;
+}
+.carta_descripcion{
+    border:1px solid black;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+p{
+    padding: 1em;
+    color:greenyellow;
+}
+iframe{
+    width: 100%;
+}
+

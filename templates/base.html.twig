@@ -3,7 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Gymbros{% endblock %}</title>
-        <script src="https://kit.fontawesome.com/741f98634a.js" crossorigin="anonymous"></script>        {# Run `composer require symfony/webpack-encore-bundle`
+        <script src="https://kit.fontawesome.com/741f98634a.js" crossorigin="anonymous"></script>
+        <link href="{{ asset('Css/reset.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('Css/layout.css') }}" type="text/css" rel="stylesheet" />{# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
