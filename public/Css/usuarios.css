@@ -1,3 +1,19 @@
+h1{
+    font-family:Algerian;
+    font-size: 2.5em;
+    padding: 1em;
+
+}
 table{
     border:1px solid black;
+}
+th{
+    border: 1px solid rebeccapurple;
+    background-color: rgba(71, 15, 110,1);
+    font-size: 1.5em;
+    padding: 1em;
+    color:greenyellow;
+}
+td{
+    border: 1px solid rebeccapurple;
 }
