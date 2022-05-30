@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Listado de usuarios por apellidos</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Foto</th>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Fecha Nacimiento</th>
+                <th>Correo</th>
+                <th>Activado</th>
+            </tr>
+            </thead>
+            <tbody>
+            {%  for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.foto }}</td>
+                    <td>{{ usuario.dni }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellidos }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.fechaNacimiento }}</td>
+                    <td>{{ usuario.correo}} </td>
+                    <td>{{ usuario.activado}}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>No hay Usuarios</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}
