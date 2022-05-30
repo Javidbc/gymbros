@@ -29,11 +29,15 @@
                     <td>{{ usuario.telefono }}</td>
                     <td>{{ usuario.fechaNacimiento }}</td>
                     <td>{{ usuario.correo}} </td>
-                    <td>{{ usuario.activado}}</td>
+                    {% if usuario.activado %}
+                        <td>desactivar</td>
+                    {% else %}
+                        <td>activar</td>
+                    {% endif %}
                 </tr>
             {% else %}
                 <tr>
-                    <td>No hay Usuarios</td>
+                    <td colspan="8">No hay Usuarios</td>
                 </tr>
             {% endfor %}
             </tbody>
