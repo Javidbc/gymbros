@@ -39,11 +39,14 @@ h1{
     border-radius: 10px;
     margin-bottom: 1em;
 }
-p{
+.carta p{
     padding: 1em;
     color:greenyellow;
 }
 iframe{
     width: 100%;
+}
+.ocultar{
+    display: none;
 }
 

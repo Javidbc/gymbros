@@ -1,11 +1,21 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheets %}
     <link href="{{ asset('Css/ejercicios.css') }}" type="text/css" rel="stylesheet" />
+    <script src="{{ asset('Scripts/ejercicio.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de ejercicios por orden alfabético</h1>
+        <label>
+            <select id="miselect">
+                <option>Mostrar todos</option>
+                {% for ejercicio in ejercicios %}
+                    <option>{{ ejercicio.grupoMuscular }}</option>
+                {% endfor %}
+            </select>
+        </label>
+
         <div class="cartas">
             {%  for ejercicio in ejercicios %}
                 <div class="carta">
