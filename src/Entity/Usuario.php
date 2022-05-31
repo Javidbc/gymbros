@@ -28,7 +28,7 @@ class Usuario
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=8, unique=true)
+     * @ORM\Column(type="string", length=9, unique=true)
      * @var string
      */
     private $dni;
@@ -46,7 +46,7 @@ class Usuario
     private $apellidos;
 
     /**
-     * @ORM\Column(type="string", length=9)
+     * @ORM\Column(type="string", length=15)
      * @var string
      */
     private $telefono;
@@ -70,8 +70,8 @@ class Usuario
     private $contrasenia;
 
     /**
-     * @ORM\Column(type="blob")
-     * @var resource
+     * @ORM\Column(type="string")
+     * @var string
      */
     private $foto;
 
