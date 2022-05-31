@@ -18,7 +18,7 @@ class UsuarioRepository  extends  ServiceEntityRepository
     {
         return $this
             ->getEntityManager()
-            ->createQuery("SELECT u FROM App\\Entity\\Usuario u ORDER BY u.apellidos DESC")
+            ->createQuery("SELECT u FROM App\\Entity\\Usuario u ORDER BY u.apellidos ASC")
             ->getResult();
     }
 }
