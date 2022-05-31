@@ -6,42 +6,57 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de usuarios por apellidos</h1>
-        <table>
-            <thead>
-            <tr>
-                <th>Foto</th>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Teléfono</th>
-                <th>Fecha Nacimiento</th>
-                <th>Correo</th>
-                <th>Activado</th>
-            </tr>
-            </thead>
-            <tbody>
-            {%  for usuario in usuarios %}
+        <div class="cajatabla">
+            <table>
+                <thead>
                 <tr>
-                    <td>{{ usuario.foto }}</td>
-                    <td>{{ usuario.dni }}</td>
-                    <td>{{ usuario.nombre }}</td>
-                    <td>{{ usuario.apellidos }}</td>
-                    <td>{{ usuario.telefono }}</td>
-                    <td>{{ usuario.fechaNacimiento }}</td>
-                    <td>{{ usuario.correo}} </td>
-                    {% if usuario.activado %}
-                        <td>desactivar</td>
-                    {% else %}
-                        <td>activar</td>
-                    {% endif %}
+                    <th>Foto</th>
+                    <th>DNI</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Teléfono</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Correo</th>
+                    <th>Activado</th>
                 </tr>
-            {% else %}
-                <tr>
-                    <td colspan="8">No hay Usuarios</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                {%  for usuario in usuarios %}
+                    <tr class="filaUsuarios">
+                        <td>
+                            <div class="huecoFoto">
+                                {% if usuario.foto %}
+                                <img class="fotoPersona" alt="" src={{ usuario.foto }} >
+                                {% else %}
+                                <img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt="">
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>{{ usuario.dni }}</td>
+                        <td>{{ usuario.nombre }}</td>
+                        <td>{{ usuario.apellidos }}</td>
+                        <td>{{ usuario.telefono }}</td>
+                        <td>{{ usuario.fechaNacimiento|date }}</td>
+                        <td>{{ usuario.correo}} </td>
+                        <td class="test">
+                            <div class="cajaBoton">
+                            {% if usuario.activado %}
+                            <button class="btnDesactivar">Desactivar</button>
+                            {% else %}
+                            <button class="btnActivar">Activar</button>
+                            {% endif %}
+                            </div>
+                        </td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="8">No hay Usuarios</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
     </div>
 {% endblock %}

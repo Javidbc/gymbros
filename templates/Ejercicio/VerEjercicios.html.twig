@@ -7,8 +7,8 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de ejercicios por orden alfabético</h1>
-        <label>
-            <select id="miselect">
+        <label class="seleccionador">
+            <select id="miselect" class="ddlGrupo">
                 <option>Mostrar todos</option>
                 {% for ejercicio in ejercicios %}
                     <option>{{ ejercicio.grupoMuscular }}</option>

@@ -49,4 +49,17 @@ iframe{
 .ocultar{
     display: none;
 }
+.seleccionador{
+    display: block;
+    width: 100%;
+    text-align: center;
+
+}
+.ddlGrupo{
+    color: rebeccapurple;
+    background-color: rgb(116, 225, 48);
+    font-size: 1.7em;
+    padding: 0.5em 1em;
+    text-align: center;
+}
 
