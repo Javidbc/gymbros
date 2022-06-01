@@ -50,5 +50,96 @@ class Aparato
      */
     private $maquinas;
 
+    /**
+     * @return int
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Aparato
+     */
+    public function setId(int $id): Aparato
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNombreAparato(): ?string
+    {
+        return $this->nombreAparato;
+    }
+
+    /**
+     * @param string $nombreAparato
+     * @return Aparato
+     */
+    public function setNombreAparato(string $nombreAparato): Aparato
+    {
+        $this->nombreAparato = $nombreAparato;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReservable(): ?bool
+    {
+        return $this->reservable;
+    }
+
+    /**
+     * @param bool $reservable
+     * @return Aparato
+     */
+    public function setReservable(bool $reservable): Aparato
+    {
+        $this->reservable = $reservable;
+        return $this;
+    }
+
+    /**
+     * @return Ejercicio[]|Collection
+     */
+    public function getEjercicios()
+    {
+        return $this->ejercicios;
+    }
+
+    /**
+     * @param Ejercicio[]|Collection $ejercicios
+     * @return Aparato
+     */
+    public function setEjercicios($ejercicios)
+    {
+        $this->ejercicios = $ejercicios;
+        return $this;
+    }
+
+    /**
+     * @return Maquina[]|Collection
+     */
+    public function getMaquinas()
+    {
+        return $this->maquinas;
+    }
+
+    /**
+     * @param Maquina[]|Collection $maquinas
+     * @return Aparato
+     */
+    public function setMaquinas($maquinas)
+    {
+        $this->maquinas = $maquinas;
+        return $this;
+    }
+
+
 
 }
