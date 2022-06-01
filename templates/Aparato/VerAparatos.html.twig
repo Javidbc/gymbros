@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheets %}
-    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('Css/aparatos.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de aparatos</h1>
         <div class="cajaMas">
-            <a href="{{ path('aparatos_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un usuario</a>
+            <a href="{{ path('aparatos_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un aparato</a>
         </div>
         <div class="cajatabla">
             <table>
@@ -26,9 +26,9 @@
                         <td class="test">
                             <div class="cajaBoton">
                             {% if aparato.reservable %}
-                            <button class="btnDesactivar">Hacer Reservable</button>
+                            <button class="btnDesactivar">Quitar Reservable</button>
                             {% else %}
-                            <button class="btnActivar">Quitar Reservable</button>
+                            <button class="btnActivar">Hacer Reservable</button>
                             {% endif %}
                             </div>
                         </td>
