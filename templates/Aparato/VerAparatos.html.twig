@@ -7,7 +7,7 @@
     <div class="cuerpo">
         <h1> Listado de aparatos</h1>
         <div class="cajaMas">
-            <a href="{{ path('usuarios_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un usuario</a>
+            <a href="{{ path('aparatos_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un usuario</a>
         </div>
         <div class="cajatabla">
             <table>
@@ -34,8 +34,8 @@
                         </td>
                         <td>asignar ejercicio</td>
                         <td class="cajaIconos">
-                            <a class="fa fa-pencil-alt iconos" href="{{ path('usuarios_modificar',{'id':aparato.id}) }}" ></a>
-                            <a class="fa fa-trash-alt iconos" href="{{ path('usuarios_eliminar',{'id':aparato.id}) }}" ></a>
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('aparatos_modificar',{'id':aparato.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('aparatos_eliminar',{'id':aparato.id}) }}" ></a>
                         </td>
 
                     </tr>

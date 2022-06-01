@@ -12,6 +12,24 @@ class AparatoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Aparato::class);
     }
+    public function nuevo() : Aparato
+    {
+        $aparato = new Aparato();
+        $this->getEntityManager()->persist($aparato);
+        return $aparato;
+    }
+
+    public function save():void
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function delete(Aparato $aparato):void
+    {
+        $this->getEntityManager()->remove($aparato);
+        $this->save();
+    }
+
     public function verAparatos():array
     {
         return $this

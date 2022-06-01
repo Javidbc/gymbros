@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    {% if aparato.id %}
+        <h1>Editando {{ aparato.nombreAparato }}</h1>
+    {% else %}
+        <h1>Creando un nuevo aparato</h1>
+    {% endif %}
+    <div class="cajaForm">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+    </div>
+    <div class="botonera">
+        <button type="submit" class="btnConfirmar">
+            {% if aparato.id %}
+                <i class="fa fa-check"></i> Guardar cambios
+            {% else %}
+                <i class="fa fa-plus"></i> Crear nuevo Aparato
+            {% endif %}
+        </button>
+        <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
