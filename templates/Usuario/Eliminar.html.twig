@@ -10,7 +10,7 @@
         ¿Estás seguro de eliminar este usuario?
     </div>
     <form method="post">
-        <button type="submit" name="confirmar" value="si" class="btn btn-danger"><i class="fa fa-trash-alt"></i> Eliminar definitivamente</button>
-        <a href="{{ path('usuarios_listar') }}" class="btn btn-info"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <button type="submit" name="confirmar" value="si" class="btnEliminar"><i class="fa fa-trash-alt"></i> Eliminar definitivamente</button>
+        <a href="{{ path('usuarios_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
     </form>
 {% endblock %}
