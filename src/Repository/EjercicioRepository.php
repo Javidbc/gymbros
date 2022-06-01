@@ -12,6 +12,24 @@ class EjercicioRepository extends ServiceEntityRepository
         parent::__construct($registry, Ejercicio::class);
     }
 
+    public function nuevo() : Ejercicio
+    {
+        $ejercicio = new Ejercicio();
+        $this->getEntityManager()->persist($ejercicio);
+        return $ejercicio;
+    }
+
+    public function save():void
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function delete(Ejercicio $ejercicio):void
+    {
+        $this->getEntityManager()->remove($ejercicio);
+        $this->save();
+    }
+
     public function verEjercicios() : array
     {
         return $this
