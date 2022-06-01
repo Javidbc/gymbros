@@ -120,7 +120,7 @@ class Usuario
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -129,7 +129,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getDni(): string
+    public function getDni(): ?string
     {
         return $this->dni;
     }
@@ -147,7 +147,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getNombre(): string
+    public function getNombre(): ?string
     {
         return $this->nombre;
     }
@@ -165,7 +165,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getApellidos(): string
+    public function getApellidos(): ?string
     {
         return $this->apellidos;
     }
@@ -183,7 +183,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getTelefono(): string
+    public function getTelefono(): ?string
     {
         return $this->telefono;
     }
@@ -201,7 +201,7 @@ class Usuario
     /**
      * @return \DateTime
      */
-    public function getFechaNacimiento(): \DateTime
+    public function getFechaNacimiento(): ?\DateTime
     {
         return $this->fechaNacimiento;
     }
@@ -210,7 +210,7 @@ class Usuario
      * @param \DateTime $fechaNacimiento
      * @return Usuario
      */
-    public function setFechaNacimiento(\DateTime $fechaNacimiento): Usuario
+    public function setFechaNacimiento(\DateTime $fechaNacimiento): ?Usuario
     {
         $this->fechaNacimiento = $fechaNacimiento;
         return $this;
@@ -219,7 +219,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getCorreo(): string
+    public function getCorreo(): ?string
     {
         return $this->correo;
     }
@@ -237,7 +237,7 @@ class Usuario
     /**
      * @return string
      */
-    public function getContrasenia(): string
+    public function getContrasenia(): ?string
     {
         return $this->contrasenia;
     }
@@ -253,7 +253,7 @@ class Usuario
     }
 
     /**
-     * @return resource
+     * @return string
      */
     public function getFoto()
     {
@@ -261,7 +261,7 @@ class Usuario
     }
 
     /**
-     * @param resource $foto
+     * @param string $foto
      * @return Usuario
      */
     public function setFoto($foto)
@@ -273,7 +273,7 @@ class Usuario
     /**
      * @return bool
      */
-    public function isActivado(): bool
+    public function isActivado(): ?bool
     {
         return $this->activado;
     }
@@ -291,7 +291,7 @@ class Usuario
     /**
      * @return bool
      */
-    public function isEsAdmin(): bool
+    public function isEsAdmin(): ?bool
     {
         return $this->esAdmin;
     }
@@ -309,7 +309,7 @@ class Usuario
     /**
      * @return bool
      */
-    public function isEsMonitor(): bool
+    public function isEsMonitor(): ?bool
     {
         return $this->esMonitor;
     }
