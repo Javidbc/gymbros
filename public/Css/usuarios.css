@@ -1,9 +1,4 @@
-h1{
-    font-family:Arial;
-    font-size: 2.5em;
-    padding: 1em;
 
-}
 .cajatabla{
     display: flex;
     justify-content: center;
@@ -78,31 +73,12 @@ tr{
 .filaUsuarios{
     border-bottom: 1px solid rebeccapurple;
 }
-.cajaBoton{
-    display: flex;
-    justify-content: center;
 
-
-}
-
-.cajaForm{
-    width: 60%;
-    background-color: #d7efb0;
-    border-radius: 3em;
-    border: 3px solid rebeccapurple;
-    margin:auto;
-    padding: 3em;
-}
 
 .form-inline{
     display: flex;
 }
-label{
-    font-family: Arial;
 
-    font-weight: bold;
-    padding-top: 1em;
-}
 
 legend{
     font-family: Arial;
@@ -111,109 +87,11 @@ legend{
     padding-top: 1em;
 }
 
-.form-check{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    vertical-align: middle;
-}
-.cajaMas{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-.btnDefecto{
-    display: block;
-    margin:1em;
-    background-color: rebeccapurple;
-    color: yellowgreen;
-    border: 3px solid #786294;
-    border-radius:0.5em ;
-    padding: 1em 0.6em;
-    font-weight: bold;
-    filter: drop-shadow(3px 3px 1px gray);
-    text-decoration: none;
-    width: 20%;
-    text-align: center;
-}
-.btnDefecto:hover{
-    background-color: #462467;
-    filter:drop-shadow(0px 0px 0px);
-    color: #668622;
-}
 
-.btnVolver{
-    margin:1em;
-    background-color: rebeccapurple;
-    color: yellowgreen;
-    border: 3px solid #786294;
-    border-radius:0.5em ;
-    padding: 1em 0.6em;
-    font-weight: bold;
-    filter: drop-shadow(3px 3px 1px gray);
-    text-decoration: none;
-    text-align: center;
-}
-.btnVolver:hover{
-    background-color: #462467;
-    filter:drop-shadow(0px 0px 0px);
-    color: #668622;
-}
 
-.btnConfirmar{
-    background-color: forestgreen;
-    color: white;
-    border: 3px solid yellowgreen;
-    border-radius:0.5em ;
-    padding: 1em 0.6em;
-    font-weight: bold;
-    filter: drop-shadow(3px 3px 1px gray);
-    text-decoration: none;
-    text-align: center;
-}
 
-.btnConfirmar:hover{
-    background-color: #175917;
-    filter:drop-shadow(0px 0px 0px);
-    color: darkgrey;
-}
 
-.btnEliminar{
-    background-color: #d90a0a;
-    color: white;
-    border: 3px solid lightcoral;
-    border-radius:0.5em ;
-    padding: 1em 0.6em;
-    font-weight: bold;
-    filter: drop-shadow(3px 3px 1px gray);
-    text-decoration: none;
-    text-align: center;
-}
 
-.btnEliminar:hover{
-    background-color: #8c3b3b;
-    filter:drop-shadow(0px 0px 0px);
-    color: darkgrey;
-}
-i{
-    padding-right: 0.2em;
-
-}
-
-.cajaIconos{
-    vertical-align: middle;
-}
-.iconos{
-    font-size: 1.4em;
-    color: #462467;
-    padding-right: 0.5em;
-    text-decoration: none;
-}
-.botonera{
-    margin-bottom: 3em;
-    margin-top: 2em;
-    text-align: center;
-}
 
 
 
