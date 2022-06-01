@@ -9,12 +9,13 @@ body{
 }
 /*menu navegacion*/
 .menuLayout{
-    background-color: rgba(71, 15, 110);
+    background-color: rgba(71, 15, 110,1);
     color: white;
     display: flex;
     justify-content: space-between;
-    font-size: 1.3em;
+    font-size: 1.2em;
     height: 15vh;
+    width: 100%;
 }
 .menuLayout img{
     padding-top: 1em;
@@ -34,7 +35,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 1em;
+    margin-right: 2em;
 }
 .menuLayout_derecha img{
     border-radius: 50%;
@@ -62,7 +63,7 @@ li{
 }
 /*pie*/
 footer {
-    background-color: #490A8C;
+    background-color: rgba(71, 15, 110,1);
     width: 100%;
     height: 5vh;
     color: white;
