@@ -15,7 +15,7 @@ td{
 table{
 
     border:1px solid black;
-    width: 90%;
+    width: 92%;
     margin-bottom: 4em;
 }
 th{
@@ -49,6 +49,11 @@ th{
     font-weight: bold;
     filter: drop-shadow(3px 3px 1px gray);
 }
+.btnDesactivar:hover{
+    background-color: #8c3b3b;
+    filter:drop-shadow(0px 0px 0px);
+
+}
 .btnActivar{
     background-color: forestgreen;
     color: white;
@@ -58,11 +63,7 @@ th{
     font-weight: bold;
     filter: drop-shadow(3px 3px 1px gray);
 }
-.btnDesactivar:hover{
-    background-color: #8c3b3b;
-    filter:drop-shadow(0px 0px 0px);
 
-}
 .btnActivar:hover{
     background-color: #175917;
     filter:drop-shadow(0px 0px 0px);
@@ -111,6 +112,44 @@ legend{
     align-items: center;
     align-content: center;
     vertical-align: middle;
+}
+.cajaMas{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.btnDefecto{
+    display: block;
+    margin:1em;
+    background-color: rebeccapurple;
+    color: yellowgreen;
+    border: 3px solid #786294;
+    border-radius:0.5em ;
+    padding: 1em 0.6em;
+    font-weight: bold;
+    filter: drop-shadow(3px 3px 1px gray);
+    text-decoration: none;
+    width: 20%;
+    text-align: center;
+}
+.btnDefecto:hover{
+    background-color: #462467;
+    filter:drop-shadow(0px 0px 0px);
+    color: #668622;
+}
+i{
+    padding-right: 0.2em;
+
+}
+
+.cajaIconos{
+    vertical-align: middle;
+}
+.iconos{
+    font-size: 1.4em;
+    color: #462467;
+    padding-right: 0.5em;
+    text-decoration: none;
 }
 
 

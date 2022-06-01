@@ -6,7 +6,9 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de usuarios por apellidos</h1>
-        <a href="{{ path('usuarios_nuevo') }}" class="btn btn-primary">Añadir un usuario</a>
+        <div class="cajaMas">
+            <a href="{{ path('usuarios_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un usuario</a>
+        </div>
         <div class="cajatabla">
             <table>
                 <thead>
@@ -19,6 +21,7 @@
                     <th>Fecha Nacimiento</th>
                     <th>Correo</th>
                     <th>Activado</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,11 +51,16 @@
                             {% endif %}
                             </div>
                         </td>
+                        <td class="cajaIconos">
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('usuarios_modificar',{'id':usuario.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('usuarios_eliminar',{'id':usuario.id}) }}" ></a>
+
+                        </td>
 
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="8">No hay Usuarios</td>
+                        <td colspan="9">No hay Usuarios</td>
                     </tr>
                 {% endfor %}
                 </tbody>
