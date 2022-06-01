@@ -14,7 +14,7 @@ class UsuarioController extends AbstractController
 {
 
     /**
-     * @ROute ("/usuarios/nuevo", name="usuarios_nuevo")
+     * @Route ("/usuarios/nuevo", name="usuarios_nuevo")
      *
      */
     public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository): Response
