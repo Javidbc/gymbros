@@ -6,6 +6,7 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de usuarios por apellidos</h1>
+        <a href="{{ path('usuarios_nuevo') }}" class="btn btn-primary">Añadir un usuario</a>
         <div class="cajatabla">
             <table>
                 <thead>
@@ -28,7 +29,7 @@
                                 {% if usuario.foto %}
                                 <img class="fotoPersona" alt="" src={{ usuario.foto }} >
                                 {% else %}
-                                <img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt="">
+                                <img class="fotoPersona" src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt="">
                                 {% endif %}
                             </div>
                         </td>

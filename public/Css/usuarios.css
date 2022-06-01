@@ -1,5 +1,5 @@
 h1{
-    font-family:Algerian;
+    font-family:Arial;
     font-size: 2.5em;
     padding: 1em;
 
@@ -13,6 +13,7 @@ td{
     vertical-align: middle;
 }
 table{
+
     border:1px solid black;
     width: 90%;
     margin-bottom: 4em;
@@ -40,7 +41,7 @@ th{
     justify-content: center;
 }
 .btnDesactivar{
-    background-color: red;
+    background-color: #d90a0a;
     color: white;
     border: 3px solid lightcoral;
     border-radius:0.5em ;
@@ -66,12 +67,50 @@ th{
     background-color: #175917;
     filter:drop-shadow(0px 0px 0px);
 }
+tr{
+    background-color: rgba(213, 255, 133, 0.41);
+}
 .filaUsuarios{
     border-bottom: 1px solid rebeccapurple;
 }
 .cajaBoton{
     display: flex;
     justify-content: center;
+
+
+}
+
+.cajaForm{
+    width: 60%;
+    background-color: #d7efb0;
+    border-radius: 3em;
+    border: 3px solid rebeccapurple;
+    margin:auto;
+    padding: 3em;
+}
+
+.form-inline{
+    display: flex;
+}
+label{
+    font-family: Arial;
+
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+legend{
+    font-family: Arial;
+
+    font-weight: bold;
+    padding-top: 1em;
+}
+
+.form-check{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    vertical-align: middle;
 }
 
 
