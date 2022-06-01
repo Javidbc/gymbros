@@ -32,7 +32,8 @@
                             {% endif %}
                             </div>
                         </td>
-                        <td>asignar ejercicio</td>
+
+                        <td><a href="{{ path('aparatos_verAparato', {'aparato': aparato.id}) }}" class="btnAsignar">Asignar ejercicios</a></td>
                         <td class="cajaIconos">
                             <a class="fa fa-pencil-alt iconos" href="{{ path('aparatos_modificar',{'id':aparato.id}) }}" ></a>
                             <a class="fa fa-trash-alt iconos" href="{{ path('aparatos_eliminar',{'id':aparato.id}) }}" ></a>

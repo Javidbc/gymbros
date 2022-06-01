@@ -4,5 +4,21 @@ td{
     font-size:1.2em ;
 }
 table{
-    width: 50%;
+    width: 60%;
+}
+.btnAsignar{
+    background-color: rgba(71, 15, 110,1);
+    color: greenyellow;
+    border: 3px solid #786294;
+    border-radius:0.5em ;
+    font-weight: bold;
+    padding: 0.2em 0.6em;
+    filter: drop-shadow(3px 3px 1px gray);
+    text-decoration: none;
+    text-align: center;
+}
+.btnAsignar:hover{
+    background-color: rgba(71, 15, 110,1);
+    filter:drop-shadow(0px 0px 0px);
+    color: #668622;
 }

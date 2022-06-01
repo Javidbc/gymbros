@@ -37,4 +37,14 @@ class AparatoRepository extends ServiceEntityRepository
             ->createQuery("SELECT a FROM App\\Entity\\Aparato a")
             ->getResult();
     }
+    public function verAparato(string $aparato)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT a FROM App\\Entity\\Aparato a WHERE a.id = :id")
+            ->setParameter('id',$aparato)
+            ->getResult();
+    }
+
+
 }

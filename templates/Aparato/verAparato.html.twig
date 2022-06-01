@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ aparato[0].nombreAparato }}</h1>
+    <label>
+        <select multiple>
+            <option>Opcion1</option>
+            <option>Opcion1</option>
+            <option>Opcion1</option>
+            <option>Opcion1</option>
+            <option>Opcion1</option>
+        </select>
+    </label>
+    <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+
+{% endblock %}

@@ -73,4 +73,13 @@ class AparatosController extends AbstractController
         $aparatoRepository=$aparatoRepository->verAparatos();
         return $this->render('Aparato/VerAparatos.html.twig',['aparatos'=>$aparatoRepository]);
     }
+
+    /**
+     * @Route ("/aparatos/verAparato/{aparato}", name="aparatos_verAparato")
+     */
+    public function asignarEjercicio(AparatoRepository $aparatoRepository,string $aparato): Response
+    {
+        $aparato=$aparatoRepository->verAparato($aparato);
+        return $this->render('Aparato/verAparato.html.twig',['aparato'=>$aparato]);
+    }
 }
