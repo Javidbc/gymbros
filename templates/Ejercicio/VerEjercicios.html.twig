@@ -7,6 +7,9 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de ejercicios por orden alfabético</h1>
+        <div class="cajaMas">
+            <a href="{{ path('ejercicios_nuevo') }}" class="btnDefecto"><i class=" fa fa-plus"></i><i class="fa fa-dumbbell"></i>Añadir un ejercicio</a>
+        </div>
         <label class="seleccionador">
             <select id="miselect" class="ddlGrupo">
                 <option>Mostrar todos</option>
@@ -23,6 +26,10 @@
                     <p class="carta_grupoMuscular">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
                     <p class="carta_descripcion">{{ ejercicio.descripcion }}</p>
                     <iframe width="560" height="315" src="{{ ejercicio.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p class="carta_iconos">
+                        <a class="fa fa-pencil-alt iconos icEjer" href="{{ path('ejercicios_modificar',{'id':ejercicio.id}) }}" ></a>
+                        <a class="fa fa-trash-alt iconos icEjer" href="{{ path('ejercicios_eliminar',{'id':ejercicio.id}) }}" ></a>
+                    </p>
                 </div>
             {% else %}
                 <h2>No hay ejercicios</h2>
