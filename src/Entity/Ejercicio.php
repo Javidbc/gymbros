@@ -72,7 +72,7 @@ class Ejercicio
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -81,7 +81,7 @@ class Ejercicio
     /**
      * @return string
      */
-    public function getNombre(): string
+    public function getNombre(): ?string
     {
         return $this->nombre;
     }
@@ -99,7 +99,7 @@ class Ejercicio
     /**
      * @return string
      */
-    public function getGrupoMuscular(): string
+    public function getGrupoMuscular(): ?string
     {
         return $this->grupoMuscular;
     }
@@ -117,7 +117,7 @@ class Ejercicio
     /**
      * @return string
      */
-    public function getDescripcion(): string
+    public function getDescripcion(): ?string
     {
         return $this->descripcion;
     }
@@ -135,7 +135,7 @@ class Ejercicio
     /**
      * @return string
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->url;
     }

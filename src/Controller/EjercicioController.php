@@ -17,7 +17,7 @@ class EjercicioController extends AbstractController
      * @ROute ("ejercicios/nuevo", name="ejercicios_nuevo")
      *
      */
-    public function nuevoUsuario(Request $request, EjercicioRepository $ejercicioRepository): Response
+    public function nuevoEjercicio(Request $request, EjercicioRepository $ejercicioRepository): Response
     {
         $ejercicio = $ejercicioRepository->nuevo();
         return $this->modificarEjercicio($request,$ejercicioRepository,$ejercicio);
