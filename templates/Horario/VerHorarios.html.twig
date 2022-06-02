@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/aparatos.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Horarios</h1>
+        <div class="cajaMas">
+            <a href="{{ path('aparatos_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un aparato</a>
+        </div>
+        <div class="cajatabla">
+            <table>
+                <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Edicion</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%  for horario in horarios %}
+                    <tr class="filaUsuarios">
+                        <td>{{ horario.hora }}</td>
+                        <td class="cajaIconos">
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('aparatos_modificar',{'id':horario.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('aparatos_eliminar',{'id':horario.id}) }}" ></a>
+                        </td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="2">No hay Horarios</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

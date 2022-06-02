@@ -14,7 +14,7 @@ class HorarioController extends AbstractController
      */
     public function verHorarios(HorarioRepository $horarioRepository):Response
     {
-        $horarioRepository=$horarioRepository->verEjercicios();
+        $horarioRepository=$horarioRepository->verHorarios();
         return  $this->render('Horario/VerHorarios.html.twig',['horarios'=>$horarioRepository]);
     }
 }

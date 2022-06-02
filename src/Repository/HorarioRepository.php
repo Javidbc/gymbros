@@ -35,7 +35,7 @@ class HorarioRepository extends ServiceEntityRepository
     {
         return $this
             ->getEntityManager()
-            ->createQuery("SELECT h FROM App\\Entity\\Horarios h ORDER BY h.hora DESC")
+            ->createQuery("SELECT h FROM App\\Entity\\Horario h ORDER BY h.hora DESC")
             ->getResult();
     }
 }

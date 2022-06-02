@@ -36,6 +36,62 @@ class Horario
      */
     private $reservasHora;
 
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Horario
+     */
+    public function setId(int $id): Horario
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHora(): string
+    {
+        return $this->hora;
+    }
+
+    /**
+     * @param string $hora
+     * @return Horario
+     */
+    public function setHora(string $hora): Horario
+    {
+        $this->hora = $hora;
+        return $this;
+    }
+
+    /**
+     * @return Reserva[]|Collection
+     */
+    public function getReservasHora()
+    {
+        return $this->reservasHora;
+    }
+
+    /**
+     * @param Reserva[]|Collection $reservasHora
+     * @return Horario
+     */
+    public function setReservasHora($reservasHora)
+    {
+        $this->reservasHora = $reservasHora;
+        return $this;
+    }
+
+
+
 
 
 }
