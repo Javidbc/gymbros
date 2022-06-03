@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Aparato;
 use App\Entity\Ejercicio;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,8 +27,12 @@ class EjercicioType extends AbstractType
             ->add('url',TextType::class,[
                 'label'=>'Url del video explicativo'
             ])
-            /*->add('aparatos')
-            ->add('tablas')*/
+            ->add('aparatos',EntityType::class,[
+                'label'=>'Elige un aparato al que asociarlo',
+                'class'=>Aparato::class,
+                'required'=>false
+            ])
+            /*->add('tablas')*/
         ;
     }
 
