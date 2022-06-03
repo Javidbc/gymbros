@@ -45,9 +45,11 @@
                         <td class="test">
                             <div class="cajaBoton">
                             {% if usuario.activado %}
-                            <button class="btnDesactivar">Desactivar</button>
+                                <a href="{{ path("usuarios_activar",{'id':usuario.id}) }}" class="btnDesactivar">Desactivar</a>
+
                             {% else %}
-                            <button class="btnActivar">Activar</button>
+                                <a href="{{ path("usuarios_activar",{'id':usuario.id}) }}" class="btnActivar">Activar</a>
+
                             {% endif %}
                             </div>
                         </td>

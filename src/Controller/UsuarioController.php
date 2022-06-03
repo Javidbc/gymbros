@@ -74,4 +74,22 @@ class UsuarioController extends AbstractController
         $usuarioRepository=$usuarioRepository->verUsuarios();
         return  $this->render('Usuario/VerUsuarios.html.twig',['usuarios'=>$usuarioRepository]);
     }
+
+    /**
+     * @Route ("/usuarios/activado/{id}", name="usuarios_activar")
+     */
+    public function cambiaReservable(UsuarioRepository $usuarioRepository, Usuario $usuario):Response
+    {
+        $estado=$usuario->isActivado();
+        if ($estado){
+            $usuario->setActivado(false);
+        }
+        else{
+            $usuario->setActivado(true);
+        }
+        $usuarioRepository->save();
+
+
+        return $this->redirectToRoute("usuarios_listar");
+    }
 }
