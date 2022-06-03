@@ -18,6 +18,11 @@ class Aparato
         $this->ejercicios = new ArrayCollection();
         $this->maquinas  = new ArrayCollection();
     }
+
+    public function  __toString()
+    {
+        return $this->getNombreAparato();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

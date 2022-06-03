@@ -26,14 +26,14 @@
                         <td class="test">
                             <div class="cajaBoton">
                             {% if aparato.reservable %}
-                            <button class="btnDesactivar">Quitar Reservable</button>
+                                <a href="{{ path("aparatos_cambRes",{'id':aparato.id}) }}" class="btnDesactivar">Quitar Reservable</a>
                             {% else %}
-                            <button class="btnActivar">Hacer Reservable</button>
+                                <a href="{{ path("aparatos_cambRes",{'id':aparato.id}) }}" class="btnActivar">Hacer Reservable</a>
                             {% endif %}
                             </div>
                         </td>
 
-                        <td><a href="{{ path('aparatos_verAparato', {'aparato': aparato.id}) }}" class="btnAsignar">Asignar ejercicios</a></td>
+                        <td><a href="{{ path('maquinas_nueva') }}" class="btnAsignar">Asignar ejercicios o máquinas</a></td>
                         <td class="cajaIconos">
                             <a class="fa fa-pencil-alt iconos" href="{{ path('aparatos_modificar',{'id':aparato.id}) }}" ></a>
                             <a class="fa fa-trash-alt iconos" href="{{ path('aparatos_eliminar',{'id':aparato.id}) }}" ></a>

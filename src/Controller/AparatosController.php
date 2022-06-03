@@ -82,4 +82,22 @@ class AparatosController extends AbstractController
         $aparato=$aparatoRepository->verAparato($aparato);
         return $this->render('Aparato/verAparato.html.twig',['aparato'=>$aparato]);
     }
+
+    /**
+     * @Route ("/aparatos/reservable/{id}", name="aparatos_cambRes")
+     */
+    public function cambiaReservable(AparatoRepository $aparatoRepository, Aparato $aparato):Response
+    {
+        $estado=$aparato->isReservable();
+        if ($estado){
+            $aparato->setReservable(false);
+        }
+        else{
+            $aparato->setReservable(true);
+        }
+        $aparatoRepository->save();
+
+
+        return $this->redirectToRoute("aparatos_listar");
+    }
 }
