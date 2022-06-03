@@ -3,16 +3,10 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{ aparato[0].nombreAparato }}</h1>
-    <label>
-        <select multiple>
-            <option>Opcion1</option>
-            <option>Opcion1</option>
-            <option>Opcion1</option>
-            <option>Opcion1</option>
-            <option>Opcion1</option>
-        </select>
-    </label>
+    <div class="cajaForm">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+    </div>
     <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
 
 {% endblock %}

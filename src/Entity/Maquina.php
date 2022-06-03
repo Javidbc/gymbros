@@ -44,4 +44,78 @@ class Maquina
      * @var Reserva[]|Collection
      */
     private $reservas;
+
+    /**
+     * @return int
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Maquina
+     */
+    public function setId(int $id): Maquina
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNumeroMaquina(): ?int
+    {
+        return $this->numeroMaquina;
+    }
+
+    /**
+     * @param int $numeroMaquina
+     * @return Maquina
+     */
+    public function setNumeroMaquina(int $numeroMaquina): Maquina
+    {
+        $this->numeroMaquina = $numeroMaquina;
+        return $this;
+    }
+
+    /**
+     * @return Aparato
+     */
+    public function getAparato(): ?Aparato
+    {
+        return $this->aparato;
+    }
+
+    /**
+     * @param Aparato $aparato
+     * @return Maquina
+     */
+    public function setAparato(Aparato $aparato): Maquina
+    {
+        $this->aparato = $aparato;
+        return $this;
+    }
+
+    /**
+     * @return Reserva[]|Collection
+     */
+    public function getReservas()
+    {
+        return $this->reservas;
+    }
+
+    /**
+     * @param Reserva[]|Collection $reservas
+     * @return Maquina
+     */
+    public function setReservas($reservas)
+    {
+        $this->reservas = $reservas;
+        return $this;
+    }
+
+
 }
