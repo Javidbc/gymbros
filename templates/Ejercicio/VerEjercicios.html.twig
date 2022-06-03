@@ -13,8 +13,8 @@
         <label class="seleccionador">
             <select id="miselect" class="ddlGrupo">
                 <option>Mostrar todos</option>
-                {% for ejercicio in ejercicios %}
-                    <option>{{ ejercicio.grupoMuscular }}</option>
+                {% for grupo in grupos %}
+                    <option>{{ grupo.grupoMuscular }}</option>
                 {% endfor %}
             </select>
         </label>

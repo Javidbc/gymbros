@@ -14,7 +14,7 @@ class EjercicioController extends AbstractController
 {
 
     /**
-     * @ROute ("ejercicios/nuevo", name="ejercicios_nuevo")
+     * @Route ("ejercicios/nuevo", name="ejercicios_nuevo")
      *
      */
     public function nuevoEjercicio(Request $request, EjercicioRepository $ejercicioRepository): Response
@@ -71,7 +71,8 @@ class EjercicioController extends AbstractController
      */
     public function verEjercicios(EjercicioRepository $ejercicioRepository):Response
     {
-        $ejercicioRepository=$ejercicioRepository->verEjercicios();
-        return  $this->render('Ejercicio/VerEjercicios.html.twig',['ejercicios'=>$ejercicioRepository]);
+        $ejercicios=$ejercicioRepository->verEjercicios();
+        $gruposMusculares=$ejercicioRepository->findGruposMusculares();
+        return  $this->render('Ejercicio/VerEjercicios.html.twig',['ejercicios'=>$ejercicios,'grupos'=>$gruposMusculares]);
     }
 }

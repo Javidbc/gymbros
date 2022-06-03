@@ -37,4 +37,12 @@ class EjercicioRepository extends ServiceEntityRepository
             ->createQuery("SELECT e FROM App\\Entity\\Ejercicio e ORDER BY e.nombre DESC")
             ->getResult();
     }
+
+    public function findGruposMusculares() :array
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT DISTINCT g.grupoMuscular FROM App\\Entity\\Ejercicio g ")
+            ->getResult();
+    }
 }
