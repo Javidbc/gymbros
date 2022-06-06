@@ -14,7 +14,7 @@ class Tabla
 
     public function __construct()
     {
-        $this->ejercicios= new ArrayCollection();
+        $this->dias= new ArrayCollection();
         $this->usuarios= new ArrayCollection();
     }
     /**
@@ -29,12 +29,6 @@ class Tabla
      * @ORM\Column (type="string")
      * @var string
      */
-    private $diaSemana;
-
-    /**
-     * @ORM\Column (type="string")
-     * @var string
-     */
     private $nombreTabla;
 
     /**
@@ -44,10 +38,10 @@ class Tabla
     private $vistoBueno;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ejercicio",inversedBy="tablas")
-     * @var Ejercicio[]|Collection
+     * @ORM\ManyToMany(targetEntity="Dia",inversedBy="tablas")
+     * @var Dia[]|Collection
      */
-    private  $ejercicios;
+    private  $dias;
 
     /**
      * @ORM\ManyToOne (targetEntity="Usuario",inversedBy="tablasCreadas")

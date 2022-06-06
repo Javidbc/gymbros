@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity()
@@ -22,8 +23,8 @@ class Reserva
     private $id;
 
     /**
-     * @ORM\Column (type="datetime")
-     * @var DateTime
+     * @ORM\Column (type="date")
+     * @var Date
      */
     private $fechaReserva;
 

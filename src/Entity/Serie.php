@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity()
@@ -38,8 +39,8 @@ class Serie
     private $numSerie;
 
     /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
+     * @ORM\Column(type="date")
+     * @var Date
      */
     private $fechaSerie;
 

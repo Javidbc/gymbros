@@ -44,7 +44,7 @@ class Aparato
     private $reservable;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ejercicio", inversedBy="aparatos")
+     * @ORM\ManyToMany(targetEntity="Ejercicio", mappedBy="aparatos")
      * @var Ejercicio[]|Collection
      */
     private $ejercicios;
