@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Aparato;
+use App\Entity\Ejercicio;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -22,7 +24,12 @@ class AparatoType extends AbstractType
                 'required'=>false,
                 'empty_data'  => null
             ])
-            ->add('ejercicios')
+            /* no se pueden añadir ejercicios a traves de aparatos
+             * ->add('ejercicios',EntityType::class,[
+                'label'=>'Elige un ejercicio o varios con los que relacionarlo',
+                'class'=>Ejercicio::class,
+                'multiple'=>true
+            ])*/
         ;
     }
 

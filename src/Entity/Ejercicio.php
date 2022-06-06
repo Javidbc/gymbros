@@ -18,6 +18,10 @@ class Ejercicio
         $this->aparatos = new ArrayCollection();
         $this->dias = new ArrayCollection();
     }
+    public function  __toString()
+    {
+        return $this->getNombre();
+    }
 
     /**
      * @ORM\Id()
@@ -187,22 +191,24 @@ class Ejercicio
     }
 
     /**
-     * @return Tabla[]|Collection
+     * @return Dia[]|Collection
      */
-    public function getTablas()
+    public function getDias()
     {
-        return $this->tablas;
+        return $this->dias;
     }
 
     /**
-     * @param Tabla[]|Collection $tablas
+     * @param Dia[]|Collection $dias
      * @return Ejercicio
      */
-    public function setTablas($tablas)
+    public function setDias($dias)
     {
-        $this->tablas = $tablas;
+        $this->dias = $dias;
         return $this;
     }
+
+
 
 
 

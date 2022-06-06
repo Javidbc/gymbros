@@ -119,22 +119,24 @@ class Tabla
     }
 
     /**
-     * @return Ejercicio[]|Collection
+     * @return Dia[]|Collection
      */
-    public function getEjercicios()
+    public function getDias()
     {
-        return $this->ejercicios;
+        return $this->dias;
     }
 
     /**
-     * @param Ejercicio[]|Collection $ejercicios
+     * @param Dia[]|Collection $dias
      * @return Tabla
      */
-    public function setEjercicios($ejercicios)
+    public function setDias($dias)
     {
-        $this->ejercicios = $ejercicios;
+        $this->dias = $dias;
         return $this;
     }
+
+
 
     /**
      * @return Usuario

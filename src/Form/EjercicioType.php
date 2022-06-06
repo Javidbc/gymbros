@@ -28,11 +28,11 @@ class EjercicioType extends AbstractType
                 'label'=>'Url del video explicativo'
             ])
             ->add('aparatos',EntityType::class,[
-                'label'=>'Elige un aparato al que asociarlo',
+                'label'=>'Elige uno o varios aparatos al que asociarlo',
                 'class'=>Aparato::class,
                 'multiple'=>true
             ])
-            ->add('dias')
+            /*->add('dias')*/
         ;
     }
 
