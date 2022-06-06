@@ -12,6 +12,23 @@ class TablaRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Tabla::class);
     }
+    public function nuevo() : Tabla
+    {
+        $tabla = new Tabla();
+        $this->getEntityManager()->persist($tabla);
+        return $tabla;
+    }
+
+    public function save():void
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function delete(Tabla $tabla):void
+    {
+        $this->getEntityManager()->remove($tabla);
+        $this->save();
+    }
 
     public function verTablas() : array
     {
