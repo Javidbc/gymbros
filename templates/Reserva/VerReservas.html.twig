@@ -1,0 +1,47 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Listado de reservas</h1>
+        <div class="cajaMas">
+            <a href="{{ path('reservas_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Hacer una reserva</a>
+        </div>
+        <div class="cajatabla">
+            <table>
+                <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Maquina</th>
+                    <th>Horario</th>
+                    <th>Fecha</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {%  for reserva in reservas %}
+                    <tr class="filaUsuarios">
+                        <td>{{ reserva.usuario }}</td>
+                        <td>{{ reserva.maquina }}</td>
+                        <td>{{ reserva.horario }}</td>
+                        <td>{{ reserva.fechaReserva }}</td>
+                        <td class="cajaIconos">
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('reservas_modificar',{'id':reserva.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('reservas_eliminar',{'id':reserva.id}) }}" ></a>
+
+                        </td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No hay reservas</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}
