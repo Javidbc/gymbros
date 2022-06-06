@@ -26,6 +26,13 @@
                     <p class="carta_grupoMuscular">Grupo Muscular: {{ ejercicio.grupoMuscular }}</p>
                     <p class="carta_descripcion">{{ ejercicio.descripcion }}</p>
                     <iframe width="560" height="315" src="{{ ejercicio.url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <p class="carta_Aparatos">Puedes hacer este ejercicio en:
+                        {% for aparato in ejercicio.aparatos %}
+                            {{ aparato.nombreAparato }}
+                        {% else %}
+                            No hay un aparato para este ejercicio
+                        {% endfor %}
+                    </p>
                     <p class="carta_iconos">
                         <a class="fa fa-pencil-alt iconos icEjer" href="{{ path('ejercicios_modificar',{'id':ejercicio.id}) }}" ></a>
                         <a class="fa fa-trash-alt iconos icEjer" href="{{ path('ejercicios_eliminar',{'id':ejercicio.id}) }}" ></a>

@@ -2,13 +2,13 @@
 {% block stylesheets %}{% endblock %}
 
 {% block content %}
-    <h1>Eliminar al usuario {{ usuario.nombre }} con DNI: {{ usuario.dni }}</h1>
+    <h1>Eliminar el ejercicio {{ ejercicio.nombre }} </h1>
 
     <div class="alert alert-danger">
-        ¿Estás seguro de eliminar este usuario?
+        ¿Estás seguro de eliminar este ejercicio?
     </div>
     <form method="post">
         <button type="submit" name="confirmar" value="si" class="btnEliminar"><i class="fa fa-trash-alt"></i> Eliminar definitivamente</button>
-        <a href="{{ path('usuarios_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <a href="{{ path('ejercicios_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
     </form>
 {% endblock %}

@@ -22,7 +22,7 @@ class AparatoType extends AbstractType
                 'required'=>false,
                 'empty_data'  => null
             ])
-            /*->add('ejercicios')*/
+            ->add('ejercicios')
         ;
     }
 

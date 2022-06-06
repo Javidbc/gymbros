@@ -30,9 +30,9 @@ class EjercicioType extends AbstractType
             ->add('aparatos',EntityType::class,[
                 'label'=>'Elige un aparato al que asociarlo',
                 'class'=>Aparato::class,
-                'required'=>false
+                'multiple'=>true
             ])
-            /*->add('tablas')*/
+            ->add('dias')
         ;
     }
 
