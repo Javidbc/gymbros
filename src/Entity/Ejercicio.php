@@ -68,7 +68,7 @@ class Ejercicio
     private $aparatos;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Dia", inversedBy="ejercicios")
+     * @ORM\ManyToMany(targetEntity="Dia", mappedBy="ejercicios")
      * @var Dia[]|Collection
      */
     private $dias;

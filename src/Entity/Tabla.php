@@ -38,7 +38,7 @@ class Tabla
     private $vistoBueno;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Dia",inversedBy="tablas")
+     * @ORM\ManyToMany(targetEntity="Dia",mappedBy="tablas")
      * @var Dia[]|Collection
      */
     private  $dias;
@@ -58,7 +58,7 @@ class Tabla
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -67,7 +67,7 @@ class Tabla
     /**
      * @return string
      */
-    public function getDiaSemana(): string
+    public function getDiaSemana(): ?string
     {
         return $this->diaSemana;
     }
@@ -85,7 +85,7 @@ class Tabla
     /**
      * @return string
      */
-    public function getNombreTabla(): string
+    public function getNombreTabla(): ?string
     {
         return $this->nombreTabla;
     }
@@ -103,7 +103,7 @@ class Tabla
     /**
      * @return bool
      */
-    public function isVistoBueno(): bool
+    public function isVistoBueno(): ?bool
     {
         return $this->vistoBueno;
     }
@@ -136,12 +136,10 @@ class Tabla
         return $this;
     }
 
-
-
     /**
      * @return Usuario
      */
-    public function getCreador(): Usuario
+    public function getCreador(): ?Usuario
     {
         return $this->creador;
     }
