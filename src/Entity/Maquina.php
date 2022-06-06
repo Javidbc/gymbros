@@ -19,6 +19,11 @@ class Maquina
         $this->reservas = new ArrayCollection();
 
     }
+
+    public function __toString()
+    {
+        return $this->getAparato()->getNombreAparato() . ' ' . $this->getId();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -27,11 +32,6 @@ class Maquina
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $numeroMaquina;
 
     /**
      * @ORM\ManyToOne(targetEntity="Aparato",inversedBy="maquinas")

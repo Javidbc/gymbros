@@ -15,9 +15,6 @@ class MaquinaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('numeroMaquina',IntegerType::class,[
-                'label'=>'Numero de la máquina'
-            ])
             ->add('aparato',EntityType::class,[
                 'label'=>'Aparato al que corresponde',
                 'class'=>Aparato::class

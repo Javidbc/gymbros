@@ -16,6 +16,11 @@ class Horario
     {
         $this->reservasHora = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getHora();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

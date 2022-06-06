@@ -3,20 +3,24 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Crear nueva maquina</h1>
+    {% if reserva.id %}
+        <h1>Editando {{ reserva.maquina }}</h1>
+    {% else %}
+        <h1>Haciendo una reserva</h1>
+    {% endif %}
     <div class="cajaForm">
         {{ form_start(form) }}
         {{ form_widget(form) }}
     </div>
     <div class="botonera">
         <button type="submit" class="btnConfirmar">
-            {% if maquina.id %}
+            {% if reserva.id %}
                 <i class="fa fa-check"></i> Guardar cambios
             {% else %}
-                <i class="fa fa-plus"></i> Crear nueva maquina
+                <i class="fa fa-plus"></i> Hacer la reserva
             {% endif %}
         </button>
-        <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <a href="{{ path('reservas_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
         {{ form_end(form) }}
     </div>
 

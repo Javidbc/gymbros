@@ -19,6 +19,11 @@ class Usuario
         $this->reservasUsuario = new ArrayCollection();
         $this->tablasCreadas = new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getDni();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
