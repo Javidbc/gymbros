@@ -22,7 +22,7 @@ class Reserva
     private $id;
 
     /**
-     * @ORM\Column (type="date")
+     * @ORM\Column (type="datetime")
      * @var \DateTime
      */
     private $fechaReserva;
