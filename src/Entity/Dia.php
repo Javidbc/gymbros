@@ -33,13 +33,13 @@ class Dia
     private $diaSemana;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tabla", mappedBy="dias")
+     * @ORM\ManyToMany(targetEntity="Tabla", inversedBy="dias")
      * @var Tabla[]|Collection
      */
     private $tablas;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Ejercicio", mappedBy="dias")
+     * @ORM\ManyToMany(targetEntity="Ejercicio", inversedBy="dias")
      * @var Ejercicio[]|Collection
      */
     private $ejercicios;
@@ -47,7 +47,7 @@ class Dia
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -56,7 +56,7 @@ class Dia
     /**
      * @return string
      */
-    public function getDiaSemana(): string
+    public function getDiaSemana(): ?string
     {
         return $this->diaSemana;
     }

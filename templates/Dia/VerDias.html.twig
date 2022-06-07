@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/aparatos.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Listado de dias</h1>
+        <div class="cajaMas">
+            <a href="{{ path('dias_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Añadir un dia</a>
+        </div>
+        <div class="cajatabla">
+            <table>
+                <thead>
+                <tr>
+                    <th>Dia semana</th>
+                    <th>Ejercicios</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {%  for dia in dias %}
+                    <tr class="filaUsuarios">
+                        <td>{{ dia.diaSemana }}</td>
+                        <td>(por hacer)</td>
+                        <td class="cajaIconos">
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('dias_modificar',{'id':dia.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('dias_eliminar',{'id':dia.id}) }}" ></a>
+                        </td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3">No hay Dias</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}
