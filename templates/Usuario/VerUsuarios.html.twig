@@ -29,8 +29,8 @@
                     <tr class="filaUsuarios">
                         <td>
                             <div class="huecoFoto">
-                                {% if usuario.foto %}
-                                <img class="fotoPersona" alt="" src={{ usuario.foto }} >
+                                {% if usuario.imageName %}
+                                <img class="fotoPersona" alt="" src={{ usuario.imageName }} >
                                 {% else %}
                                 <img class="fotoPersona" src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt="">
                                 {% endif %}
