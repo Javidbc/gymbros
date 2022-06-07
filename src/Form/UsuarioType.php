@@ -39,7 +39,9 @@ class UsuarioType extends AbstractType
             ->add('contrasenia',PasswordType::class,[
                 'label'=>'Contraseña temporal del usuario'
             ])
-            ->add('imageFile', VichImageType::class)
+            ->add('imageFile', VichImageType::class,[
+                'required'=>false
+            ])
             ->add('activado',CheckboxType::class,[
                 'label'=>'Activar',
                 'required'=>false,
