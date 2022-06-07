@@ -16,16 +16,16 @@ class AparatosController extends AbstractController
      * @Route ("/aparatos/nuevo", name="aparatos_nuevo")
      *
      */
-    public function nuevoUsuario(Request $request, AparatoRepository $aparatoRepository): Response
+    public function nuevoAparato(Request $request, AparatoRepository $aparatoRepository): Response
     {
         $aparato = $aparatoRepository->nuevo();
-        return $this->modificarUsuario($request,$aparatoRepository,$aparato);
+        return $this->modificarAparato($request,$aparatoRepository,$aparato);
     }
 
     /**
      * @Route ("/aparatos/modificar/{id}", name="aparatos_modificar")
      */
-    public function modificarUsuario(Request $request,AparatoRepository $aparatoRepository, Aparato $aparato): Response
+    public function modificarAparato(Request $request,AparatoRepository $aparatoRepository, Aparato $aparato): Response
     {
         $form = $this->createForm(AparatoType::class, $aparato);
         $form->handleRequest($request);
@@ -49,7 +49,7 @@ class AparatosController extends AbstractController
      * @Route ("/aparatos/eliminar/{id}", name="aparatos_eliminar")
      */
 
-    public function eliminarUsuario(Request $request, AparatoRepository $aparatoRepository,Aparato $aparato):Response
+    public function eliminarAparato(Request $request, AparatoRepository $aparatoRepository,Aparato $aparato):Response
     {
         if ($request->get('confirmar', false)) {
             try {
