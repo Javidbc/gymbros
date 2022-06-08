@@ -8,7 +8,6 @@
     {% else %}
         <h1>Creando un nuevo aparato</h1>
     {% endif %}
-    {% for i in 0..6 %}
     <div class="cajaForm">
         {{ form_start(form) }}
         {{ form_widget(form) }}
@@ -22,8 +21,7 @@
             {% endif %}
         </button>
         {{ form_end(form) }}
-    </div>
-    {% endfor %}
         <a href="{{ path('dias_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+    </div>
 
 {% endblock %}

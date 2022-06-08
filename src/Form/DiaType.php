@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Dia;
 use App\Entity\Ejercicio;
+use App\Entity\Tabla;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -26,7 +27,10 @@ class DiaType extends AbstractType
                     'Domingo' => 'Domingo',
                 ],
             ])
-            /*->add('tablas')*/
+            ->add('tablas',EntityType::class,[
+                'label'=>'Tabla asociada',
+                'class'=>Tabla::class
+            ])
             ->add('ejercicios',EntityType::class,[
                 'label'=>'Elige tus ejercicios',
                 'class'=>Ejercicio::class,
