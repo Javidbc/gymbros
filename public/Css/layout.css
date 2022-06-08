@@ -18,8 +18,6 @@ body{
     width: 100%;
 }
 .menuLayout img{
-    padding-top: 1em;
-    padding-bottom:1em;
     width: 100%;
     min-width: 100px;
 }
@@ -29,6 +27,13 @@ body{
 }
 .menuLayout figure{
     width: 15%;
+}
+.miLogo{
+    display: block;
+    width: 15%;
+}
+.miLogo img{
+    display: block;
 }
 /*parte derecha*/
 .menuLayout_derecha{

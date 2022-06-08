@@ -466,17 +466,17 @@ class Usuario implements UserInterface
 
     public function getPassword()
     {
-        // TODO: Implement getPassword() method.
+        return $this->getContrasenia();
     }
 
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->getCorreo();
     }
 
     public function eraseCredentials()
