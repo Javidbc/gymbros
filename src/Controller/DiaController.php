@@ -34,7 +34,7 @@ class DiaController extends AbstractController
             try {
                 $diaRepository->save();
                 $this->addFlash('exito', 'Cambios guardados con éxito');
-                return $this->redirectToRoute('dias_listar');
+                return $this->redirectToRoute('tablas_listar');
             } catch (\Exception $exception) {
                 $this->addFlash('error', 'Error al guardar los cambios');
             }
@@ -55,7 +55,7 @@ class DiaController extends AbstractController
             try {
                 $diaRepository->delete($dia);
                 $this->addFlash('exito', 'Dia eliminado con exito');
-                return $this->redirectToRoute('dias_listar');
+                return $this->redirectToRoute('tablas_listar');
             } catch (\Exception $exception) {
                 $this->addFlash('error', 'Error al eliminar el dia');
             }

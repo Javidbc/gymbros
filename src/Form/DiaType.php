@@ -29,7 +29,8 @@ class DiaType extends AbstractType
             ])
             ->add('tablas',EntityType::class,[
                 'label'=>'Tabla asociada',
-                'class'=>Tabla::class
+                'class'=>Tabla::class,
+                'multiple'=>true
             ])
             ->add('ejercicios',EntityType::class,[
                 'label'=>'Elige tus ejercicios',
