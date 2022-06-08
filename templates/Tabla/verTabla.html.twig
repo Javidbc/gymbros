@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ tabla[0].nombreTabla }}</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Dia</th>
+            <th>Ejercicios</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {%  for dia in tabla[0].dias %}
+            <tr class="filaUsuarios">
+                <td>{{ dia.diaSemana }}</td>
+                <td>
+                    {% for ejercicio in dia.ejercicios %}
+                        <p>{{ ejercicio.nombre }}</p>
+                    {% else %}
+                        <p>No hay ejercicios asignados a este dia</p>
+                    {% endfor %}
+                </td>
+                <td class="cajaIconos">
+                    <a class="fa fa-pencil-alt iconos" href="{{ path('dias_modificar',{'id':dia.id}) }}" ></a>
+                    <a class="fa fa-trash-alt iconos" href="{{ path('dias_eliminar',{'id':dia.id}) }}" ></a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">No hay dias en esta tabla</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="botonera">
+        <a href="{{ path('dias_nuevo') }}" class="btnVolver">Crear un nuevo día</a>
+    </div>
+
+
+
+{% endblock %}

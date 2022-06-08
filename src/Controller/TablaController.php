@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tabla;
+use App\Form\TablaType;
 use App\Repository\TablaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TablaController extends AbstractController
 {
     /**
-     * @Route ("tablas/nuevo", name="tablas_nuevo")
+     * @Route ("tablas/nuevo", name="tablas_nueva")
      *
      */
     public function nuevaTabla(Request $request, TablaRepository $tablaRepository): Response
@@ -72,4 +73,15 @@ class TablaController extends AbstractController
         $tablas=$tablaRepository->verTablas();
         return  $this->render('Tabla/VerTablas.html.twig',['tablas'=>$tablas]);
     }
+
+    /**
+     * @Route ("/tabla/verTabla/{tabla}", name="tablas_verTabla")
+     */
+    public function verTabla(TablaRepository $tablaRepository,string $tabla): Response
+    {
+        $tabla=$tablaRepository->verTabla($tabla);
+        return $this->render('Tabla/verTabla.html.twig',['tabla'=>$tabla]);
+    }
+
+
 }

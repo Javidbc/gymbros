@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    {% if tabla.id %}
+        <h1>Editando {{ tabla.nombreTabla }}</h1>
+    {% else %}
+        <h1>Creando una nueva tabla</h1>
+    {% endif %}
+    <div class="cajaForm">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+    </div>
+    <div class="botonera">
+        <button type="submit" class="btnConfirmar">
+            {% if tabla.id %}
+                <i class="fa fa-check"></i> Guardar cambios
+            {% else %}
+                <i class="fa fa-plus"></i> Crear esta tabla
+            {% endif %}
+        </button>
+        <a href="{{ path('tablas_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

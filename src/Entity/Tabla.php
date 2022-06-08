@@ -17,6 +17,11 @@ class Tabla
         $this->dias= new ArrayCollection();
         $this->usuarios= new ArrayCollection();
     }
+
+    public function __toString()
+    {
+        return $this->getNombreTabla();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

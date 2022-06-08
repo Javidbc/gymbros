@@ -37,4 +37,13 @@ class TablaRepository extends ServiceEntityRepository
             ->createQuery("SELECT t FROM App\\Entity\\Tabla t ORDER BY t.nombreTabla DESC")
             ->getResult();
     }
+
+    public function verTabla(string $tabla)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT t FROM App\\Entity\\Tabla t WHERE t.id = :id")
+            ->setParameter('id',$tabla)
+            ->getResult();
+    }
 }
