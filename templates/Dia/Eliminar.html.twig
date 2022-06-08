@@ -3,13 +3,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Eliminar {{ aparato.nombreAparato }}</h1>
+    <h1>Eliminar {{ dia.diaSemana }}</h1>
 
     <div class="alert alert-danger">
-        ¿Estás seguro de eliminar este aparato?
+        ¿Estás seguro de quitar este día de la tabla?
     </div>
     <form method="post">
         <button type="submit" name="confirmar" value="si" class="btnEliminar"><i class="fa fa-trash-alt"></i> Eliminar definitivamente</button>
-        <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <a href="{{ path('dias_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
     </form>
 {% endblock %}
