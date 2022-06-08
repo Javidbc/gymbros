@@ -23,8 +23,11 @@
             </ul>
         </div>
         <div class="menuLayout_derecha">
-            <p><a href="#">Iniciar Sesión</a></p>
-            <p><a href="#">Cerrar Sesión</a></p>
+            {% if app.user %}
+            <p><a href="{{ path('logout') }}">Cerrar Sesión</a></p>
+            {% else %}
+            <p><a href="{{ path('login') }}">Iniciar Sesión</a></p>
+            {% endif %}
             <figure>
                 <a href="#"><img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt=""></a>
             </figure>

@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Login Gymbros{% endblock %}
+{% block content %}
+    <form method="post" class="form">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.message }}</div>
+        {% endif %}
+        <label>Usuario:
+            <input type="text" value="{{ ultimo_usuario }}" name=“_username" placeholder="Correo-e" required autofocus>
+        </label>
+        <label>Contraseña:
+            <input type="password" name="_password" class="form-control" placeholder="Contraseña" required>
+        </label>
+        <button class="btn btn-lg btn-primary" type="submit">Entrar</button>
+    </form>
+{% endblock %}

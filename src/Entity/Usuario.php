@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Vich\UploaderBundle\Entity\File as EmbeddedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -16,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @Vich\Uploadable
  */
 
-class Usuario
+class Usuario implements UserInterface
 {
     public function  __construct()
     {
@@ -458,8 +459,28 @@ class Usuario
     }
 
 
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
 
+    public function getPassword()
+    {
+        // TODO: Implement getPassword() method.
+    }
 
+    public function getSalt()
+    {
+        // TODO: Implement getSalt() method.
+    }
 
+    public function getUsername()
+    {
+        // TODO: Implement getUsername() method.
+    }
 
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
+    }
 }
