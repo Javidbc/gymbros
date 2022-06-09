@@ -8,13 +8,13 @@
         <p>{{ dia }}</p>
         {% for ejercicio in dia.ejercicios %}
             <ul>
-            <li>{{ ejercicio }} <a href="#" class="btnVolver">Añadir una serie</a></li>
+            <li>{{ ejercicio }} <a href="{{ path('series_nueva',{'usuario':app.user.id,'ejercicio':ejercicio.id}) }}" class="">Empezar el ejercicio</a></li>
             </ul>
         {% endfor %}
     {% endfor %}
 
     <div class="botonera">
-        <a href="{{ path('tablas_listar') }}" class="btnVolver">Elegir otra tabla</a>
+        <a href="{{ path('tablas_listar') }}" class="btnVolver">Cambiar de tabla</a>
     </div>
 
 
