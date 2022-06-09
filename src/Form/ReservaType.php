@@ -22,17 +22,17 @@ class   ReservaType extends AbstractType
                 'html5'=>true
             ])
             ->add('maquina',EntityType::class,[
-                'label'=>'Elige uno o varios aparatos al que asociarlo',
+                'label'=>'Elige una maquina que reservar',
                 'class'=>Maquina::class,
             ])
             ->add('horario',EntityType::class,[
-                'label'=>'Elige uno o varios aparatos al que asociarlo',
+                'label'=>'Elige el horario que quieres reservar',
                 'class'=>Horario::class,
             ])
-            ->add('usuario',EntityType::class,[
-                'label'=>'Elige uno o varios aparatos al que asociarlo',
+            /*->add('usuario',EntityType::class,[
+                'label'=>'Usuario de la reserva',
                 'class'=>Usuario::class,
-            ])
+            ])*/
         ;
     }
 

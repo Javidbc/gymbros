@@ -22,7 +22,7 @@ class Reserva
     private $id;
 
     /**
-     * @ORM\Column (type="datetime")
+     * @ORM\Column (type="date")
      * @var \DateTime
      */
     private $fechaReserva;
@@ -55,18 +55,18 @@ class Reserva
 
 
     /**
-     * @return Date
+     * @return \DateTime
      */
-    public function getFechaReserva(): ?Date
+    public function getFechaReserva(): ?\DateTime
     {
         return $this->fechaReserva;
     }
 
     /**
-     * @param Date $fechaReserva
+     * @param \DateTime $fechaReserva
      * @return Reserva
      */
-    public function setFechaReserva(Date $fechaReserva): Reserva
+    public function setFechaReserva(\DateTime $fechaReserva): Reserva
     {
         $this->fechaReserva = $fechaReserva;
         return $this;

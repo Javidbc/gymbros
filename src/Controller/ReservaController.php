@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Reserva;
+use App\Entity\Usuario;
 use App\Form\ReservaType;
 use App\Repository\ReservaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,12 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ReservaController extends AbstractController
 {
     /**
-     * @Route ("reservas/nuevo", name="reservas_nuevo")
+     * @Route ("reservas/nuevo/{usuario}", name="reservas_nuevo")
      *
      */
-    public function nuevaReserva(Request $request, ReservaRepository $reservaRepository): Response
+    public function nuevaReserva(Request $request, ReservaRepository $reservaRepository,Usuario $usuario): Response
     {
         $reserva = $reservaRepository->nuevo();
+        $reserva->setUsuario($usuario);
         return $this->modificarReserva($request,$reservaRepository,$reserva);
     }
 

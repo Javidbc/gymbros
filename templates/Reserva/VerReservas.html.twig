@@ -7,7 +7,7 @@
     <div class="cuerpo">
         <h1> Listado de reservas</h1>
         <div class="cajaMas">
-            <a href="{{ path('reservas_nuevo') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Hacer una reserva</a>
+            <a href="{{ path('reservas_nuevo',{'usuario':app.user.id}) }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Hacer una reserva</a>
         </div>
         <div class="cajatabla">
             <table>
@@ -26,7 +26,7 @@
                         <td>{{ reserva.usuario }}</td>
                         <td>{{ reserva.maquina }}</td>
                         <td>{{ reserva.horario }}</td>
-                        <td>{{ reserva.fechaReserva }}</td>
+                        <td>{{ reserva.fechaReserva|date("m/d/Y") }}</td>
                         <td class="cajaIconos">
                             <a class="fa fa-pencil-alt iconos" href="{{ path('reservas_modificar',{'id':reserva.id}) }}" ></a>
                             <a class="fa fa-trash-alt iconos" href="{{ path('reservas_eliminar',{'id':reserva.id}) }}" ></a>
