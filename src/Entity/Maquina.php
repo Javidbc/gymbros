@@ -22,7 +22,7 @@ class Maquina
 
     public function __toString()
     {
-        return $this->getAparato()->getNombreAparato() . ' ' . $this->getId();
+        return $this->getAparato()->getNombreAparato() . ' ' . $this->getEtiqueta();
     }
     /**
      * @ORM\Id()
@@ -31,6 +31,12 @@ class Maquina
      * @var int
      */
     private $id;
+
+    /**
+     * @ORM\Column (type="string")
+     * @var string
+     */
+    private $etiqueta;
 
 
     /**
@@ -54,14 +60,24 @@ class Maquina
     }
 
     /**
-     * @param int $id
+     * @return string
+     */
+    public function getEtiqueta(): ?string
+    {
+        return $this->etiqueta;
+    }
+
+    /**
+     * @param string $etiqueta
      * @return Maquina
      */
-    public function setId(int $id): Maquina
+    public function setEtiqueta(string $etiqueta): Maquina
     {
-        $this->id = $id;
+        $this->etiqueta = $etiqueta;
         return $this;
     }
+
+
 
     /**
      * @return int

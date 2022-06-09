@@ -7,6 +7,7 @@ use App\Entity\Maquina;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,10 +16,10 @@ class MaquinaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('aparato',EntityType::class,[
-                'label'=>'Aparato al que corresponde',
-                'class'=>Aparato::class
+            ->add('etiqueta',TextType::class,[
+                'label'=>'Etiqueta de la maquina'
             ])
+
         ;
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Aparato;
 use App\Entity\Maquina;
 use App\Form\MaquinaType;
 use App\Repository\MaquinaRepository;
@@ -13,11 +14,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class MaquinaController extends AbstractController
 {
     /**
-     * @Route ("maquinas/nueva", name="maquinas_nueva")
+     * @Route ("maquinas/nueva/{aparato}", name="maquinas_nueva")
      */
-    public function nuevaMaquina(Request $request, MaquinaRepository $maquinaRepository): Response
+    public function nuevaMaquina(Request $request, MaquinaRepository $maquinaRepository,Aparato $aparato): Response
     {
         $maquina = $maquinaRepository->nuevo();
+        $maquina->setAparato($aparato);
         return $this->modificarMaquina($request,$maquinaRepository,$maquina);
     }
 
