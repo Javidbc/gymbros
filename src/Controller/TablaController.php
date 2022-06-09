@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Tabla;
+use App\Entity\Usuario;
 use App\Form\TablaType;
 use App\Repository\TablaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,13 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class TablaController extends AbstractController
 {
     /**
-     * @Route ("tablas/nuevo", name="tablas_nueva")
+     * @Route ("tablas/nuevo/{creador}", name="tablas_nueva")
      *
      */
-    public function nuevaTabla(Request $request, TablaRepository $tablaRepository): Response
+    public function nuevaTabla(Request $request, TablaRepository $tablaRepository,Usuario $creador): Response
     {
         $tabla = $tablaRepository->nuevo();
-
+        $tabla->setCreador($creador);
         return $this->modificarTabla($request,$tablaRepository,$tabla);
     }
 

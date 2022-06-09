@@ -29,11 +29,11 @@ class TablaType extends AbstractType
             /*->add('dias',EntityType::class,[
                 'label'=>'Dia de la semana',
                 'class'=>Dia::class
-            ])*/
+            ])
             ->add('creador',EntityType::class,[
                 'label'=>'Creador',
                 'class'=>Usuario::class,
-            ])
+            ])*/
         ;
     }
 

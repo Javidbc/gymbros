@@ -7,7 +7,7 @@
     <div class="cuerpo">
         <h1> Tablas Disponibles, elige una</h1>
         <div class="cajaMas">
-            <a href="{{ path('tablas_nueva') }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Crear una tabla</a>
+            <a href="{{ path('tablas_nueva',{'creador':app.user.id}) }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Crear una tabla</a>
         </div>
         <div class="cajatabla">
             <table>
