@@ -81,7 +81,7 @@ class Tabla
      * @param string $diaSemana
      * @return Tabla
      */
-    public function setDiaSemana(string $diaSemana): Tabla
+    public function setDiaSemana(string $diaSemana): ?Tabla
     {
         $this->diaSemana = $diaSemana;
         return $this;
@@ -99,7 +99,7 @@ class Tabla
      * @param string $nombreTabla
      * @return Tabla
      */
-    public function setNombreTabla(string $nombreTabla): Tabla
+    public function setNombreTabla(string $nombreTabla): ?Tabla
     {
         $this->nombreTabla = $nombreTabla;
         return $this;
@@ -117,7 +117,7 @@ class Tabla
      * @param bool $vistoBueno
      * @return Tabla
      */
-    public function setVistoBueno(bool $vistoBueno): Tabla
+    public function setVistoBueno(bool $vistoBueno): ?Tabla
     {
         $this->vistoBueno = $vistoBueno;
         return $this;

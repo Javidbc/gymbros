@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ app.user.miTabla}}</h1>
+    {% for dia in app.user.miTabla.dias %}
+        <p>{{ dia }}</p>
+        {% for ejercicio in dia.ejercicios %}
+            <ul>
+            <li>{{ ejercicio }} <a href="{{ path('dias_nuevo') }}" class="btnVolver">Añadir una serie</a></li>
+            </ul>
+        {% endfor %}
+    {% endfor %}
+
+    <div class="botonera">
+        <a href="{{ path('tablas_listar') }}" class="btnVolver">Elegir otra tabla</a>
+    </div>
+
+
+
+{% endblock %}

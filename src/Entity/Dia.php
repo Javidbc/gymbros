@@ -18,6 +18,9 @@ class Dia
         $this->tablas = new ArrayCollection();
         $this->ejercicios = new ArrayCollection();
     }
+    public function __toString(){
+        return $this->getDiaSemana();
+    }
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

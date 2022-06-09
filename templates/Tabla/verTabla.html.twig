@@ -38,8 +38,10 @@
     </table>
     <div class="botonera">
         <a href="{{ path('dias_nuevo') }}" class="btnVolver">Crear un nuevo día</a>
+        <a href="{{ path('usuarios_asignarTabla',{'usuario':app.user.id,'tabla':tabla[0].id}) }}" class="btnVolver">Utilizar esta tabla</a>
         <a href="{{ path('tablas_listar') }}" class="btnVolver">Volver al listado</a>
     </div>
+
 
 
 

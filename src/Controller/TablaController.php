@@ -19,6 +19,7 @@ class TablaController extends AbstractController
     public function nuevaTabla(Request $request, TablaRepository $tablaRepository): Response
     {
         $tabla = $tablaRepository->nuevo();
+
         return $this->modificarTabla($request,$tablaRepository,$tabla);
     }
 

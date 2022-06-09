@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Dia;
+use App\Entity\Tabla;
 use App\Form\DiaType;
 use App\Repository\DiaRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,12 +14,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class DiaController extends AbstractController
 {
     /**
-     * @Route ("/dias/nuevo", name="dias_nuevo")
+     * @Route ("/dias/nuevo/{tabla}", name="dias_nuevo")
      *
      */
-    public function nuevoDia(Request $request, DiaRepository $diaRepository): Response
+    public function nuevoDia(Request $request, DiaRepository $diaRepository,Tabla $tabla): Response
     {
         $dia = $diaRepository->nuevo();
+        $dia->setTablas($tabla);
         return $this->modificarDia($request,$diaRepository,$dia);
     }
 
