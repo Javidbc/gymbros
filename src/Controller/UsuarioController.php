@@ -95,7 +95,7 @@ class UsuarioController extends AbstractController
     }
 
     /**
-     * @Route("/usuarios/verMiTabla/{tabla},{id}", name="usuarios_miTabla")
+     * @Route("/usuarios/verMiTabla/{tabla}/{id}", name="usuarios_miTabla")
      */
     public function verMiTabla(UsuarioRepository $usuarioRepository,string $tabla,string $id):Response
     {
