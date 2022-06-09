@@ -39,4 +39,14 @@ class UsuarioRepository  extends  ServiceEntityRepository
             ->createQuery("SELECT u FROM App\\Entity\\Usuario u ORDER BY u.apellidos ASC")
             ->getResult();
     }
+
+    public function vermiTabla($tabla,$usuario)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT u FROM App\\Entity\\Usuario u WHERE u.miTabla =:tabla AND u.id =:id")
+            ->setParameter('tabla',$tabla)
+            ->setParameter('id',$usuario)
+            ->getResult();
+    }
 }

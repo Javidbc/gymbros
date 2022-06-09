@@ -443,7 +443,7 @@ class Usuario implements UserInterface
     /**
      * @return Tabla
      */
-    public function getMiTabla(): Tabla
+    public function getMiTabla(): ?Tabla
     {
         return $this->miTabla;
     }

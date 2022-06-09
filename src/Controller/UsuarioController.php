@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Tabla;
 use App\Entity\Usuario;
 use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
@@ -91,5 +92,26 @@ class UsuarioController extends AbstractController
 
 
         return $this->redirectToRoute("usuarios_listar");
+    }
+
+    /**
+     * @Route("/usuarios/verMiTabla/{tabla},{id}", name="usuarios_miTabla")
+     */
+    public function verMiTabla(UsuarioRepository $usuarioRepository,string $tabla,string $id):Response
+    {
+        $tabla=$usuarioRepository->vermiTabla($tabla,$id);
+        return $this->render('Usuario/verMiTabla.html.twig',['tabla'=>$tabla]);
+    }
+
+    /**
+     * @Route ("/usuarios/asignar/{usuario}/{tabla}", name="usuarios_asignarTabla")
+     */
+    public function asignarTabla(UsuarioRepository $usuarioRepository, Usuario $usuario,Tabla $tabla):Response
+    {
+        $usuario->setMiTabla($tabla);
+        $usuarioRepository->save();
+
+
+        return $this->redirectToRoute("tablas_listar");
     }
 }
