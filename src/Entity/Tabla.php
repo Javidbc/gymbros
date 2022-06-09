@@ -43,7 +43,7 @@ class Tabla
     private $vistoBueno;
 
     /**
-     * @ORM\OneToMany (targetEntity="Dia",mappedBy="tablas")
+     * @ORM\OneToMany (targetEntity="Dia",mappedBy="tabla")
      * @var Dia[]|Collection
      */
     private  $dias;

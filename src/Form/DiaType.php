@@ -27,11 +27,11 @@ class DiaType extends AbstractType
                     'Domingo' => 'Domingo',
                 ],
             ])
-            ->add('tablas',EntityType::class,[
+            /*->add('tablas',EntityType::class,[
                 'label'=>'Tabla asociada',
                 'class'=>Tabla::class,
                 'multiple'=>true
-            ])
+            ])*/
             ->add('ejercicios',EntityType::class,[
                 'label'=>'Elige tus ejercicios',
                 'class'=>Ejercicio::class,

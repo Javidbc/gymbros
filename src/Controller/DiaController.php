@@ -20,7 +20,7 @@ class DiaController extends AbstractController
     public function nuevoDia(Request $request, DiaRepository $diaRepository,Tabla $tabla): Response
     {
         $dia = $diaRepository->nuevo();
-        $dia->setTablas($tabla);
+        $dia->setTabla($tabla);
         return $this->modificarDia($request,$diaRepository,$dia);
     }
 
