@@ -43,7 +43,7 @@ class Tabla
     private $vistoBueno;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Dia",mappedBy="tablas")
+     * @ORM\OneToMany (targetEntity="Dia",mappedBy="tablas")
      * @var Dia[]|Collection
      */
     private  $dias;
@@ -140,6 +140,8 @@ class Tabla
         $this->dias = $dias;
         return $this;
     }
+
+
 
     /**
      * @return Usuario

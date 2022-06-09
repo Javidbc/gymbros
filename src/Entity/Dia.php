@@ -15,7 +15,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Dia
 {
     public  function __construct(){
-        $this->tablas = new ArrayCollection();
         $this->ejercicios = new ArrayCollection();
     }
     public function __toString(){
@@ -36,10 +35,10 @@ class Dia
     private $diaSemana;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Tabla", inversedBy="dias")
-     * @var Tabla[]|Collection
+     * @ORM\ManyToOne(targetEntity="Tabla", inversedBy="dias")
+     * @var Tabla
      */
-    private $tablas;
+    private $tabla;
 
     /**
      * @ORM\ManyToMany(targetEntity="Ejercicio", inversedBy="dias")
@@ -75,22 +74,24 @@ class Dia
     }
 
     /**
-     * @return Tabla[]|Collection
+     * @return Tabla
      */
-    public function getTablas()
+    public function getTabla(): Tabla
     {
-        return $this->tablas;
+        return $this->tabla;
     }
 
     /**
-     * @param Tabla[]|Collection $tablas
+     * @param Tabla $tabla
      * @return Dia
      */
-    public function setTablas($tablas)
+    public function setTabla(Tabla $tabla): Dia
     {
-        $this->tablas = $tablas;
+        $this->tabla = $tabla;
         return $this;
     }
+
+
 
     /**
      * @return Ejercicio[]|Collection
