@@ -5,11 +5,11 @@
         {% if error %}
             <div class="alert alert-danger">{{ error.message }}</div>
         {% endif %}
-        <label>Usuario:
-            <input type="text" value="{{ ultimo_usuario }}" name="_username" placeholder="Correo-e" required autofocus>
+        <label>Correo electrónico:
+            <input type="text" value="{{ ultimo_usuario }}" class="form-control" name="_username" placeholder="correo@ejemplo.com" required autofocus>
         </label>
         <label>Contraseña:
-            <input type="password" name="_password" class="form-control" placeholder="Contraseña" required>
+            <input type="password" name="_password" class="form-control" placeholder="1234" required>
         </label>
         <button class="btn btn-lg btn-primary" type="submit">Entrar</button>
     </form>
