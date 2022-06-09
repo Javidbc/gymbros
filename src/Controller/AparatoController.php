@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AparatosController extends AbstractController
+class AparatoController extends AbstractController
 {
     /**
      * @Route ("/aparatos/nuevo", name="aparatos_nuevo")
