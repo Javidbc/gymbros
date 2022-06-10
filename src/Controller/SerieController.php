@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Ejercicio;
 use App\Entity\Serie;
+use App\Entity\Tabla;
 use App\Entity\Usuario;
 use App\Form\SerieType;
 use App\Repository\SerieRepository;
@@ -40,7 +41,10 @@ class SerieController extends AbstractController
             try {
                 $serieRepository->save();
                 $this->addFlash('exito', 'Cambios guardados con éxito');
-                return $this->redirectToRoute('tablas_listar');
+                return $this->redirectToRoute('usuarios_miTabla',array(
+                    'tabla'=>$serie->getUsuario(),
+                    'id'=>$serie->getUsuario()->getMiTabla()
+                ));
             } catch (\Exception $exception) {
                 $this->addFlash('error', 'Error al guardar los cambios');
             }

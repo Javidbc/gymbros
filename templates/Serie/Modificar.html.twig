@@ -20,7 +20,7 @@
                 <i class="fa fa-plus"></i> Crear esta serie
             {% endif %}
         </button>
-        <a href="{{ path('tablas_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <a href="{{ path('usuarios_miTabla',{'tabla':app.user.miTabla,'id':app.user}) }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
         {{ form_end(form) }}
     </div>
 
