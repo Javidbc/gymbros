@@ -27,10 +27,10 @@ class SerieType extends AbstractType
             ->add('numSerie',IntegerType::class,[
                 'label'=>'Numero de serie'
             ])
-            ->add('fechaSerie',DateType::class,[
+            /*->add('fechaSerie',DateType::class,[
                 'label'=>'Fecha de hoy'
             ])
-            /*->add('ejercicio')
+            ->add('ejercicio')
             ->add('usuario')*/
         ;
     }

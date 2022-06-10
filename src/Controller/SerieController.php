@@ -24,8 +24,8 @@ class SerieController extends AbstractController
         $serie = $serieRepository->nuevo();
         $serie->setUsuario($usuario);
         $serie->setEjercicio($ejercicio);
-        //$serie->setFechaSerie(dateTime);
-        //$serie->setNumSerie($serie->getNumSerie()+1);
+        $serie->setFechaSerie(\DateTime::createFromFormat('Y-m-d',date('Y-m-d')));
+        // esto no va $serie->setNumSerie($serie->getNumSerie()+1);
         return $this->modificarSerie($request,$serieRepository,$serie);
     }
 
