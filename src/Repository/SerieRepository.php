@@ -34,7 +34,17 @@ class SerieRepository  extends ServiceEntityRepository
     {
         return $this
             ->getEntityManager()
-            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario_id = :usuario AND s.fecha_serie = fecha")
+            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario = :usuario AND s.fechaSerie = fecha")
+            ->setParameter('usuario',$usuario)
+            ->setParameter('fecha',$fecha)
+            ->getResult();
+    }
+
+    public function seriesHoy(string $usuario,string $fecha,string $ejercicio)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario_id = :usuario AND s.fecha_serie = fecha AND s.")
             ->setParameter('usuario',$usuario)
             ->setParameter('fecha',$fecha)
             ->getResult();

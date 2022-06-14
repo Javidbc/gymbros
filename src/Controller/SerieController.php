@@ -74,4 +74,21 @@ class SerieController extends AbstractController
             'serie' => $serie
         ]);
     }
+
+    /**
+     * @Route ("/series/verSeries/{usuario}/{dia}", name="series_miSerieFecha")
+     */
+    public function verMiserieFecha(SerieRepository $serieRepository,string $fecha,string $usuario,string $serie):Response
+    {
+        $serie=$serieRepository->verMisSeries($fecha,$usuario);
+        return $this->render('Serie/verSerie.html.twig',['serie'=>$serie]);
+    }
+
+    /**
+     * @Route ("/calendario" , name="series_calendario")
+     */
+    public function calendario() :Response
+    {
+        return $this->render('Series/calendario.html.twig');
+    }
 }
