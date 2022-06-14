@@ -3,10 +3,10 @@
 {% endblock %}
 
 {% block content %}
-    {% if reserva.id %}
-        <h1>Editando {{ reserva.maquina }}</h1>
+    {% if horario.id %}
+        <h1>¿Cambiar el horario de {{ horario.hora }}</h1>
     {% else %}
-        <h1>Haciendo una reserva, recuerda que las reservas son de X min</h1>
+        <h1>Crear nuevo horario</h1>
     {% endif %}
     <div class="cajaForm">
         {{ form_start(form) }}
@@ -14,14 +14,14 @@
     </div>
     <div class="botonera">
         <button type="submit" class="btnConfirmar">
-            {% if reserva.id %}
+            {% if horario.id %}
                 <i class="fa fa-check"></i> Guardar cambios
             {% else %}
-                <i class="fa fa-plus"></i> Hacer la reserva
+                <i class="fa fa-plus"></i> Guardar horario
             {% endif %}
         </button>
-        <a href="{{ path('reservas_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
         {{ form_end(form) }}
+        <a href="{{ path('horarios_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
     </div>
 
 {% endblock %}

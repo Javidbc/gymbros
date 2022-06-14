@@ -44,25 +44,16 @@ class Horario
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    /**
-     * @param int $id
-     * @return Horario
-     */
-    public function setId(int $id): Horario
-    {
-        $this->id = $id;
-        return $this;
-    }
 
     /**
      * @return string
      */
-    public function getHora(): string
+    public function getHora(): ?string
     {
         return $this->hora;
     }
