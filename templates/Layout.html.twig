@@ -29,7 +29,7 @@
             {% if app.user %}
                 <p><a href="{{ path('logout') }}">Cerrar Sesión</a></p>
                 <figure>
-                <a href="#"><img src="{{ app.user.imageName }}" alt=""></a>
+                <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ app.user.imageName }}" alt=""></a>
                 </figure>
             {% else %}
                 <p><a href="{{ path('login') }}">Iniciar Sesión</a></p>
