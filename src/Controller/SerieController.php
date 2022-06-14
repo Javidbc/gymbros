@@ -8,6 +8,7 @@ use App\Entity\Tabla;
 use App\Entity\Usuario;
 use App\Form\SerieType;
 use App\Repository\SerieRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,7 +18,7 @@ class SerieController extends AbstractController
 {
     /**
      * @Route ("/series/nuevo/{usuario}/{ejercicio}", name="series_nueva")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevaSerie(Request $request, SerieRepository $serieRepository, Usuario $usuario,Ejercicio $ejercicio): Response
     {
@@ -31,6 +32,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route ("/series/modificar/{id}", name="series_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarSerie(Request $request,SerieRepository $serieRepository, Serie $serie): Response
     {
@@ -57,6 +59,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route ("/series/eliminar/{id}", name="series_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarDia(Request $request, SerieRepository $serieRepository,Serie $serie):Response
@@ -77,6 +80,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route ("/series/verSeries/{usuario}/{fecha}", name="series_miSerieFecha")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verMiserieFecha(SerieRepository $serieRepository,string $usuario,string $fecha):Response
     {
@@ -86,6 +90,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route ("/series/verSeriesHoy/{usuario}/{fecha}/{ejercicio}", name="series_serieHoy")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verSerieEjer(SerieRepository $serieRepository,string $usuario,string $fecha,string $ejercicio):Response
     {
@@ -95,6 +100,7 @@ class SerieController extends AbstractController
 
     /**
      * @Route ("/calendario" , name="series_calendario")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function calendario() :Response
     {

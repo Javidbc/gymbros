@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Horario;
 use App\Form\HorarioType;
 use App\Repository\HorarioRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,7 @@ class HorarioController extends AbstractController
 {
     /**
      * @Route ("/horarios/nuevo", name="horarios_nuevo")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevoUsuario(Request $request, HorarioRepository $horarioRepository): Response
     {
@@ -24,6 +25,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route ("/horarios/modificar/{id}", name="horarios_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarUsuario(Request $request,HorarioRepository $horarioRepository, Horario $horario): Response
     {
@@ -46,6 +48,7 @@ class HorarioController extends AbstractController
     }
     /**
      * @Route ("/horarios/eliminar/{id}", name="horarios_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarUsuario(Request $request, HorarioRepository $horarioRepository,Horario $horario):Response
@@ -66,6 +69,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route ("/horarios", name="horarios_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verHorarios(HorarioRepository $horarioRepository):Response
     {

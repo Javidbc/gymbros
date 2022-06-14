@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Aparato;
 use App\Form\AparatoType;
 use App\Repository\AparatoRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,7 @@ class AparatoController extends AbstractController
 {
     /**
      * @Route ("/aparatos/nuevo", name="aparatos_nuevo")
-     *
+     *@Security("is_granted('ROLE_USER')")
      */
     public function nuevoAparato(Request $request, AparatoRepository $aparatoRepository): Response
     {
@@ -24,6 +25,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/modificar/{id}", name="aparatos_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarAparato(Request $request,AparatoRepository $aparatoRepository, Aparato $aparato): Response
     {
@@ -47,6 +49,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/eliminar/{id}", name="aparatos_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarAparato(Request $request, AparatoRepository $aparatoRepository,Aparato $aparato):Response
@@ -67,6 +70,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos",name="aparatos_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verAparatos( AparatoRepository $aparatoRepository):Response
     {
@@ -76,6 +80,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/verAparato/{aparato}", name="aparatos_verAparato")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function asignarEjercicio(AparatoRepository $aparatoRepository,string $aparato): Response
     {
@@ -85,6 +90,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/reservable/{id}", name="aparatos_cambRes")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function cambiaReservable(AparatoRepository $aparatoRepository, Aparato $aparato):Response
     {

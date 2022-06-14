@@ -6,6 +6,7 @@ use App\Entity\Tabla;
 use App\Entity\Usuario;
 use App\Form\TablaType;
 use App\Repository\TablaRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class TablaController extends AbstractController
 {
     /**
      * @Route ("tablas/nuevo/{creador}", name="tablas_nueva")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevaTabla(Request $request, TablaRepository $tablaRepository,Usuario $creador): Response
     {
@@ -26,6 +27,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tablas/modificar/{id}", name="tablas_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarTabla(Request $request, TablaRepository $tablaRepository, Tabla $tabla): Response
     {
@@ -49,6 +51,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tablas/eliminar/{id}", name="tablas_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarTabla(Request $request, TablaRepository $tablaRepository,Tabla $tabla):Response
@@ -69,6 +72,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tablas", name="tablas_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verTablas(TablaRepository $tablaRepository):Response
     {
@@ -78,6 +82,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tablas/{usuario}", name="tablas_listarUser")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verTablasUser(TablaRepository $tablaRepository, string $usuario):Response
     {
@@ -87,6 +92,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tabla/verTabla/{tabla}", name="tablas_verTabla")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verTabla(TablaRepository $tablaRepository,string $tabla): Response
     {

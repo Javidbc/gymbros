@@ -6,6 +6,7 @@ use App\Entity\Dia;
 use App\Entity\Tabla;
 use App\Form\DiaType;
 use App\Repository\DiaRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class DiaController extends AbstractController
 {
     /**
      * @Route ("/dias/nuevo/{tabla}", name="dias_nuevo")
-     *
+     *@Security("is_granted('ROLE_USER')")
      */
     public function nuevoDia(Request $request, DiaRepository $diaRepository,Tabla $tabla): Response
     {
@@ -26,6 +27,7 @@ class DiaController extends AbstractController
 
     /**
      * @Route ("/dias/modificar/{id}", name="dias_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarDia(Request $request,DiaRepository $diaRepository, Dia $dia): Response
     {
@@ -49,6 +51,7 @@ class DiaController extends AbstractController
 
     /**
      * @Route ("/dias/eliminar/{id}", name="dias_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarDia(Request $request, DiaRepository $diaRepository,Dia $dia):Response
@@ -69,6 +72,7 @@ class DiaController extends AbstractController
 
     /**
      * @Route ("/dia",name="dias_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verDias(DiaRepository $diaRepository):Response
     {

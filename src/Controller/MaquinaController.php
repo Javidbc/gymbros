@@ -6,6 +6,7 @@ use App\Entity\Aparato;
 use App\Entity\Maquina;
 use App\Form\MaquinaType;
 use App\Repository\MaquinaRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ class MaquinaController extends AbstractController
 {
     /**
      * @Route ("maquinas/nueva/{aparato}", name="maquinas_nueva")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevaMaquina(Request $request, MaquinaRepository $maquinaRepository,Aparato $aparato): Response
     {
@@ -26,6 +28,7 @@ class MaquinaController extends AbstractController
 
     /**
      * @Route ("/maquinas/modificar/{id}", name="maquinas_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarMaquina(Request $request, MaquinaRepository $maquinaRepository, Maquina $maquina): Response
     {
@@ -48,6 +51,7 @@ class MaquinaController extends AbstractController
     }
     /**
      * @Route ("/maquinas/eliminar/{id}", name="maquinas_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarMaquina(Request $request, MaquinaRepository $maquinaRepository,Maquina $maquina):Response
@@ -68,6 +72,7 @@ class MaquinaController extends AbstractController
 
     /**
      * @Route ("/maquinas", name="maquinas_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verMaquinas(MaquinaRepository $maquinaRepository):Response
     {

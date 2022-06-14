@@ -18,7 +18,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/nuevo", name="usuarios_nuevo")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository): Response
     {
@@ -28,6 +28,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/modificar/{id}", name="usuarios_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarUsuario(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario): Response
     {
@@ -51,6 +52,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/perfil/{id}", name="usuarios_perfil")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarPerfil(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario): Response
     {
@@ -74,6 +76,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/eliminar/{id}", name="usuarios_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarUsuario(Request $request, UsuarioRepository $usuarioRepository,Usuario $usuario):Response
@@ -104,6 +107,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/activado/{id}", name="usuarios_activar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function cambiaReservable(UsuarioRepository $usuarioRepository, Usuario $usuario):Response
     {
@@ -122,7 +126,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route("/usuarios/verMiTabla/{tabla}/{id}", name="usuarios_miTabla")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verMiTabla(UsuarioRepository $usuarioRepository,string $tabla,string $id):Response
     {
@@ -132,6 +136,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/asignar/{usuario}/{tabla}", name="usuarios_asignarTabla")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function asignarTabla(UsuarioRepository $usuarioRepository, Usuario $usuario,Tabla $tabla):Response
     {

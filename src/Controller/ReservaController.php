@@ -6,6 +6,7 @@ use App\Entity\Reserva;
 use App\Entity\Usuario;
 use App\Form\ReservaType;
 use App\Repository\ReservaRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ class ReservaController extends AbstractController
 {
     /**
      * @Route ("reservas/nuevo/{usuario}", name="reservas_nuevo")
+     * @Security("is_granted('ROLE_USER')")
      *
      */
     public function nuevaReserva(Request $request, ReservaRepository $reservaRepository,Usuario $usuario): Response
@@ -26,6 +28,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route ("/reservas/modificar/{id}", name="reservas_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarReserva(Request $request, ReservaRepository $reservaRepository, Reserva $reserva): Response
     {
@@ -49,6 +52,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route ("/reservas/eliminar/{id}", name="reservas_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarReserva(Request $request, ReservaRepository $reservaRepository,Reserva $reserva):Response
@@ -69,6 +73,7 @@ class ReservaController extends AbstractController
 
     /**
      * @Route ("/reservas", name="reservas_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verReservas(ReservaRepository $reservaRepository):Response
     {

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ejercicio;
 use App\Form\EjercicioType;
 use App\Repository\EjercicioRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,7 +16,7 @@ class EjercicioController extends AbstractController
 
     /**
      * @Route ("ejercicios/nuevo", name="ejercicios_nuevo")
-     *
+     * @Security("is_granted('ROLE_USER')")
      */
     public function nuevoEjercicio(Request $request, EjercicioRepository $ejercicioRepository): Response
     {
@@ -25,6 +26,7 @@ class EjercicioController extends AbstractController
 
     /**
      * @Route ("/ejercicios/modificar/{id}", name="ejercicios_modificar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function modificarEjercicio(Request $request, EjercicioRepository $ejercicioRepository, Ejercicio $ejercicio): Response
     {
@@ -48,6 +50,7 @@ class EjercicioController extends AbstractController
 
     /**
      * @Route ("/ejercicios/eliminar/{id}", name="ejercicios_eliminar")
+     * @Security("is_granted('ROLE_USER')")
      */
 
     public function eliminarEjercicio(Request $request, EjercicioRepository $ejercicioRepository,Ejercicio $ejercicio):Response
@@ -68,6 +71,7 @@ class EjercicioController extends AbstractController
 
     /**
      * @Route ("/ejercicios", name="ejercicios_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verEjercicios(EjercicioRepository $ejercicioRepository):Response
     {

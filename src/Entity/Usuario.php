@@ -461,7 +461,18 @@ class Usuario implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles = ["ROLE_USER"];
+
+        if ($this->isEsMonitor()) {
+            $roles[] = "ROLE_MONITOR";
+        }
+
+        if ($this->isEsAdmin()) {
+            $roles[] = "ROLE_ADMIN";
+        }
+
+        return $roles;
+
     }
 
     public function getPassword()
