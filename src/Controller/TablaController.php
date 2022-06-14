@@ -77,6 +77,15 @@ class TablaController extends AbstractController
     }
 
     /**
+     * @Route ("/tablas/{usuario}", name="tablas_listarUser")
+     */
+    public function verTablasUser(TablaRepository $tablaRepository, string $usuario):Response
+    {
+        $tablas=$tablaRepository->verTablasUser($usuario);
+        return  $this->render('Tabla/VerTablas.html.twig',['tablas'=>$tablas]);
+    }
+
+    /**
      * @Route ("/tabla/verTabla/{tabla}", name="tablas_verTabla")
      */
     public function verTabla(TablaRepository $tablaRepository,string $tabla): Response

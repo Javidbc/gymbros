@@ -46,4 +46,13 @@ class TablaRepository extends ServiceEntityRepository
             ->setParameter('id',$tabla)
             ->getResult();
     }
+
+    public function verTablasUser(string $usuario) : array
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT t FROM App\\Entity\\Tabla t WHERE t.creador = :usuario OR t.vistoBueno = true ORDER BY t.nombreTabla DESC")
+            ->setParameter('usuario',$usuario)
+            ->getResult();
+    }
 }

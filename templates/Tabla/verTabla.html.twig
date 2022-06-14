@@ -39,7 +39,11 @@
     <div class="botonera">
         <a href="{{ path('dias_nuevo',{'tabla':tabla[0].id}) }}" class="btnVolver">Crear un nuevo día</a>
         <a href="{{ path('usuarios_asignarTabla',{'usuario':app.user.id,'tabla':tabla[0].id}) }}" class="btnVolver">Utilizar esta tabla</a>
-        <a href="{{ path('tablas_listar') }}" class="btnVolver">Volver al listado</a>
+        {% if is_granted('ROLE_MONITOR') %}
+            <a class="btnVolver" href="{{ path('tablas_listar') }}"><i class="fa-solid fa-table-list"></i>Volver al listado</a>
+        {% else %}
+            <a class="btnVolver" href="{{ path('tablas_listarUser',{'usuario':app.user.id }) }}"><i class="fa-solid fa-table-list"></i>Volver al listado</a>
+        {% endif %}
     </div>
 
 
