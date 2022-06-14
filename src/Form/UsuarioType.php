@@ -28,7 +28,7 @@ class UsuarioType extends AbstractType
                 'label'=>'Apellidos del usuario'
             ])
             ->add('telefono',TextType::class,[
-                'label'=>'Telefono del usuario'
+                'label'=>'Teléfono del usuario'
             ])
             ->add('fechaNacimiento',BirthdayType::class,[
                 'label'=>'Fecha de Nacimiento del usuario'

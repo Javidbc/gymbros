@@ -4,8 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Tabla;
 use App\Entity\Usuario;
+use App\Form\PerfilType;
 use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,6 +50,29 @@ class UsuarioController extends AbstractController
     }
 
     /**
+     * @Route ("/usuarios/perfil/{id}", name="usuarios_perfil")
+     */
+    public function modificarPerfil(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario): Response
+    {
+        $form = $this->createForm(PerfilType::class, $usuario);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $usuarioRepository->save();
+                $this->addFlash('exito', 'Cambios guardados con éxito');
+                return $this->redirectToRoute('principal');
+            } catch (\Exception $exception) {
+                $this->addFlash('error', 'Error al guardar los cambios');
+            }
+        }
+        return $this->render('Usuario/perfil.html.twig', [
+            'usuario' => $usuario,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
      * @Route ("/usuarios/eliminar/{id}", name="usuarios_eliminar")
      */
 
@@ -69,6 +94,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios", name="usuarios_listar")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function verEjercicios(UsuarioRepository $usuarioRepository):Response
     {
@@ -96,6 +122,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route("/usuarios/verMiTabla/{tabla}/{id}", name="usuarios_miTabla")
+     *
      */
     public function verMiTabla(UsuarioRepository $usuarioRepository,string $tabla,string $id):Response
     {

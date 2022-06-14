@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+        <h1>Aquí puedes editar tu perfil, {{ usuario.nombre }}</h1>
+        <img class="perfil" src="{{ app.user.imageName }}" alt="">
+    <div class="cajaForm">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+    </div>
+    <div class="botonera">
+        <button type="submit" class="btnConfirmar">
+                <i class="fa fa-check"></i> Guardar cambios
+        </button>
+        <a href="{{ path('principal') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Ir al Inicio</a>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
