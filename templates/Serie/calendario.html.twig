@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Mi calendario</h1>
+        <label>Escoge una fecha:
+            <input  id="InFecha" type="date">
+        </label>
+        <a href="{{ path('series_miSerieFecha',{'usuario':app.user.id,'fecha':"now"|date("Y-m-d")}) }}" class="">Ver lo que hice ese dia</a>
+
+    </div>
+{% endblock %}

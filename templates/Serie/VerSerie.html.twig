@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Series del dia {{ series[0].fechaSerie|date("Y-m-d") }}</h1>
+        <div class="cajatabla">
+            <table>
+                <thead>
+                <tr>
+                    <th>Ejercicio</th>
+                    <th>Repeticiones</th>
+                    <th>Peso</th>
+                    <th>numero de serie</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%  for serie in series %}
+                    <tr class="filaUsuarios">
+                        <td>{{ serie.ejercicio }}</td>
+                        <td>{{ serie.repeticiones }}</td>
+                        <td>{{ serie.peso }}</td>
+                        <td>{{ serie.numSerie }}</td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No hay reservas</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+{% endblock %}

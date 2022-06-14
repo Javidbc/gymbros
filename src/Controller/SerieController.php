@@ -76,12 +76,21 @@ class SerieController extends AbstractController
     }
 
     /**
-     * @Route ("/series/verSeries/{usuario}/{dia}", name="series_miSerieFecha")
+     * @Route ("/series/verSeries/{usuario}/{fecha}", name="series_miSerieFecha")
      */
-    public function verMiserieFecha(SerieRepository $serieRepository,string $fecha,string $usuario,string $serie):Response
+    public function verMiserieFecha(SerieRepository $serieRepository,string $usuario,string $fecha):Response
     {
-        $serie=$serieRepository->verMisSeries($fecha,$usuario);
-        return $this->render('Serie/verSerie.html.twig',['serie'=>$serie]);
+        $serie=$serieRepository->verMisSeries($usuario,$fecha);
+        return $this->render('Serie/verSerie.html.twig',['series'=>$serie]);
+    }
+
+    /**
+     * @Route ("/series/verSeriesHoy/{usuario}/{fecha}/{ejercicio}", name="series_serieHoy")
+     */
+    public function verSerieEjer(SerieRepository $serieRepository,string $usuario,string $fecha,string $ejercicio):Response
+    {
+        $serie=$serieRepository->seriesHoy($usuario,$fecha,$ejercicio);
+        return $this->render('Serie/verSerieHoy.html.twig',['series'=>$serie]);
     }
 
     /**
@@ -89,6 +98,6 @@ class SerieController extends AbstractController
      */
     public function calendario() :Response
     {
-        return $this->render('Series/calendario.html.twig');
+        return $this->render('Serie/calendario.html.twig');
     }
 }

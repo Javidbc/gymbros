@@ -34,7 +34,7 @@ class SerieRepository  extends ServiceEntityRepository
     {
         return $this
             ->getEntityManager()
-            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario = :usuario AND s.fechaSerie = fecha")
+            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario = :usuario AND s.fechaSerie = :fecha")
             ->setParameter('usuario',$usuario)
             ->setParameter('fecha',$fecha)
             ->getResult();
@@ -44,9 +44,10 @@ class SerieRepository  extends ServiceEntityRepository
     {
         return $this
             ->getEntityManager()
-            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario_id = :usuario AND s.fecha_serie = fecha AND s.")
+            ->createQuery("SELECT s FROM App\\Entity\\Serie s WHERE s.usuario = :usuario AND s.fechaSerie = :fecha AND s.ejercicio = :ejercicio")
             ->setParameter('usuario',$usuario)
             ->setParameter('fecha',$fecha)
+            ->setParameter('ejercicio',$ejercicio)
             ->getResult();
     }
 }

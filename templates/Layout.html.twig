@@ -13,7 +13,7 @@
             <ul>
                 <li><a href="{{ path('ejercicios_listar') }}"><i class="fa-solid fa-dumbbell"></i>Ejercicios</a></li>
                 <li><a href="{{ path('tablas_listar') }}"><i class="fa-solid fa-table-list"></i>Tablas</a></li>
-                <li><a href="#"><i class="fa-solid fa-calendar-days"></i>Calendario</a></li>
+                <li><a href="{{ path('series_calendario') }}"><i class="fa-solid fa-calendar-days"></i>Calendario</a></li>
                 {% if app.user.miTabla == null %}
                 {% else %}
                 <li><a href="{{ path('usuarios_miTabla',{'tabla':app.user.mitabla,'id':app.user.id}) }}"><i class="fa-solid fa-fire-flame-curved"></i>Entreno diario</a></li>
