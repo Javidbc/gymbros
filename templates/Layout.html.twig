@@ -5,10 +5,10 @@
 
 {% block body %}
     <nav class="menuLayout">
-        <div class="menuLayout_izquierda">
         <figure class="miLogo">
             <a href="{{ path('principal') }}"><img src="{{ asset('Imagenes/logo.png') }}" alt=""></a>
         </figure>
+        <div class="menuLayout_izquierda">
             {% if is_granted('ROLE_USER') %}
             <ul>
                 <li><a href="{{ path('ejercicios_listar') }}"><i class="fa-solid fa-dumbbell"></i>Ejercicios</a></li>
@@ -36,17 +36,21 @@
         <div class="menuLayout_derecha">
             {% if app.user %}
                 <p><a href="{{ path('logout') }}">Cerrar Sesión</a></p>
-                <figure>
-                <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/') }}{{ app.user.brochureFilename }}" alt=""></a>
-                </figure>
+                {%  if app.user.brochureFilename == "" %}
+                    <figure class="miLogo">
+                        <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt=""></a>
+                    </figure>
+                {% else %}
+                    <figure class="miLogo">
+                        <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/') }}{{ app.user.brochureFilename }}" alt=""></a>
+                    </figure>
+                {% endif %}
             {% else %}
                 <p><a href="{{ path('login') }}">Iniciar Sesión</a></p>
-                <figure>
+                <figure class="miLogo">
                 <a href="#"><img src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt=""></a>
                 </figure>
             {% endif %}
-
-
         </div>
     </nav>
     <div class="contenido">

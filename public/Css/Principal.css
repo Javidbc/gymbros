@@ -2,11 +2,6 @@
 .cuerpo{
     padding: 1em;
 }
-h1{
-    font-size: 2.5em;
-    margin: 1em;
-
-}
 .fila{
     display: flex;
     justify-content: space-evenly;
@@ -19,11 +14,4 @@ h1{
 .fila p{
     font-size: 1.3em;
     margin-left: 2em;
-}
-figure{
-    width: 30%;
-}
-img{
-    width: 100%;
-    min-width: 350px;
 }

@@ -30,7 +30,7 @@
                         <td>
                             <div class="huecoFoto">
                                 {% if usuario.brochureFilename %}
-                                <img class="fotoPersona" alt="" src={{ usuario.brochureFilename }} >
+                                <img class="fotoPersona" alt="" src="{{ asset('Imagenes/') }}{{ usuario.brochureFilename }}" >
                                 {% else %}
                                 <img class="fotoPersona" src="{{ asset('Imagenes/fotoPerfil.webp') }}" alt="">
                                 {% endif %}

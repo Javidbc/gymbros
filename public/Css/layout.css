@@ -3,9 +3,11 @@ body{
     display: flex;
     flex-direction: column;
     font-family: Arial, serif;
+    width: 100%;
 }
 .contenido{
     min-height: 80vh;
+    width: 100%;
 }
 /*menu navegacion*/
 .menuLayout{
@@ -16,6 +18,7 @@ body{
     font-size: 1.2em;
     height: 15vh;
     width: 100%;
+    align-items: center;
 }
 .menuLayout img{
     width: 100%;
@@ -25,35 +28,36 @@ body{
     text-decoration: none;
     color: white;
 }
-.menuLayout figure{
-    width: 15%;
+.miLogo {
+    padding-left: 1em;
 }
-.miLogo{
-    display: block;
-    width: 15%;
+.miLogo img{
+    max-height: 13vh;
 }
+
+
 /*parte derecha*/
 .menuLayout_derecha{
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    padding-right: 2em;
+    width: 25%;
 }
 .menuLayout_derecha img{
     border-radius: 50%;
-    width: 100%;
-    display: block;
  }
 
 .menuLayout_derecha a{
     width: 100%;
     display: block;
+    padding-right: 2em;
 }
 /*Menu parte izquierda*/
 
 .menuLayout_izquierda{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     margin-left: 1em;
 }
 /*barra navegacion*/
