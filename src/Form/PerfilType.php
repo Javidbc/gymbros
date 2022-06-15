@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,9 +22,20 @@ class PerfilType extends AbstractType
             ->add('contrasenia',PasswordType::class,[
                 'label'=>'Contraseña'
             ])
-            ->add('imageFile', VichImageType::class,[
-                'required'=>false,
-                'empty_data'  => null
+            ->add('brochure', FileType::class, [
+                'label' => 'Sube tu foto aqui',
+                'mapped' => false,
+                'required' => false,
+                'empty_data'  => "",
+                /*'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Tiene que ser una imagen en formato jpeg o png',
+                    ])
+                ],*/
             ])
         ;
     }

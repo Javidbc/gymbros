@@ -26,7 +26,7 @@
                 <li><a href="{{ path('horarios_listar') }}"><i class="fa-solid fa-clock"></i>Horarios</a></li>
                 {% endif %}
                 <li><a href="{{ path('aparatos_listar') }}"><i class="fa-solid fa-bicycle"></i>Aparatos</a></li>
-                {% if is_granted('ROLE_ADMINISTRADOR') %}
+                {% if is_granted('ROLE_ADMIN') %}
                 <li><a href="{{ path('usuarios_listar') }}"><i class="fa-solid fa-users"></i>Usuarios</a></li>
                 {% endif %}
                 <li><a href="{{ path('reservas_listar') }}"><i class="fa-solid fa-calendar-check"></i>Reservar</a></li>
@@ -37,7 +37,7 @@
             {% if app.user %}
                 <p><a href="{{ path('logout') }}">Cerrar Sesión</a></p>
                 <figure>
-                <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ app.user.imageName }}" alt=""></a>
+                <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/') }}{{ app.user.brochureFilename }}" alt=""></a>
                 </figure>
             {% else %}
                 <p><a href="{{ path('login') }}">Iniciar Sesión</a></p>

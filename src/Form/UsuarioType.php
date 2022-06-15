@@ -7,10 +7,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class UsuarioType extends AbstractType
@@ -39,8 +41,20 @@ class UsuarioType extends AbstractType
             ->add('contrasenia',PasswordType::class,[
                 'label'=>'Contraseña temporal del usuario'
             ])
-            ->add('imageFile', VichImageType::class,[
-                'required'=>false
+            ->add('brochure', FileType::class, [
+                'label' => 'Sube tu foto aqui',
+                'mapped' => false,
+                'required' => false,
+                'empty_data'  => "",
+                /*'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Tiene que ser una imagen en formato jpeg o png',
+                    ])
+                ],*/
             ])
             ->add('activado',CheckboxType::class,[
                 'label'=>'Activar',

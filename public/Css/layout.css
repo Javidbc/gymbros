@@ -32,22 +32,21 @@ body{
     display: block;
     width: 15%;
 }
-.miLogo img{
-    display: block;
-}
 /*parte derecha*/
 .menuLayout_derecha{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: 2em;
 }
 .menuLayout_derecha img{
     border-radius: 50%;
+    width: 100%;
+    display: block;
  }
 
 .menuLayout_derecha a{
-    padding-right:1em ;
+    width: 100%;
+    display: block;
 }
 /*Menu parte izquierda*/
 

@@ -9,9 +9,12 @@ use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class UsuarioController extends AbstractController
 {
@@ -20,28 +23,55 @@ class UsuarioController extends AbstractController
      * @Route ("/usuarios/nuevo", name="usuarios_nuevo")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository): Response
+    public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository, SluggerInterface $slugger): Response
     {
         $usuario = $usuarioRepository->nuevo();
-        return $this->modificarUsuario($request,$usuarioRepository,$usuario);
+        return $this->modificarUsuario($request,$usuarioRepository,$usuario,$slugger);
     }
 
     /**
      * @Route ("/usuarios/modificar/{id}", name="usuarios_modificar")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function modificarUsuario(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario): Response
+    public function modificarUsuario(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(UsuarioType::class, $usuario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
+                /**
+                 * @var UploadedFile $brochureFile
+                 */
+                $brochureFile = $form->get('brochure')->getData();
+
+                // this condition is needed because the 'brochure' field is not required
+                // so the PDF file must be processed only when a file is uploaded
+                if ($brochureFile) {
+                    $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        $brochureFile->move(
+                            $this->getParameter('brochures_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+
+                    // updates the 'brochureFilename' property to store the PDF file name
+                    // instead of its contents
+                    $usuario->setBrochureFilename($newFilename);
+                }
                 $usuarioRepository->save();
                 $this->addFlash('exito', 'Cambios guardados con éxito');
                 return $this->redirectToRoute('usuarios_listar');
             } catch (\Exception $exception) {
-                $this->addFlash('error', 'Error al guardar los cambios');
+                $this->addFlash('error', $exception);
             }
         }
         return $this->render('Usuario/modificar.html.twig', [
@@ -54,18 +84,45 @@ class UsuarioController extends AbstractController
      * @Route ("/usuarios/perfil/{id}", name="usuarios_perfil")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function modificarPerfil(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario): Response
+    public function modificarPerfil(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(PerfilType::class, $usuario);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             try {
+                /**
+                 * @var UploadedFile $brochureFile
+                 */
+                $brochureFile = $form->get('brochure')->getData();
+
+                // this condition is needed because the 'brochure' field is not required
+                // so the PDF file must be processed only when a file is uploaded
+                if ($brochureFile) {
+                    $originalFilename = pathinfo($brochureFile->getClientOriginalName(), PATHINFO_FILENAME);
+                    // this is needed to safely include the file name as part of the URL
+                    $safeFilename = $slugger->slug($originalFilename);
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$brochureFile->guessExtension();
+
+                    // Move the file to the directory where brochures are stored
+                    try {
+                        $brochureFile->move(
+                            $this->getParameter('brochures_directory'),
+                            $newFilename
+                        );
+                    } catch (FileException $e) {
+                        // ... handle exception if something happens during file upload
+                    }
+
+                    // updates the 'brochureFilename' property to store the PDF file name
+                    // instead of its contents
+                    $usuario->setBrochureFilename($newFilename);
+                }
                 $usuarioRepository->save();
                 $this->addFlash('exito', 'Cambios guardados con éxito');
                 return $this->redirectToRoute('principal');
             } catch (\Exception $exception) {
-                $this->addFlash('error', 'Error al guardar los cambios');
+                $this->addFlash('error', $exception);
             }
         }
         return $this->render('Usuario/perfil.html.twig', [
