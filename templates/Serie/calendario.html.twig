@@ -9,7 +9,8 @@
         <label>Escoge una fecha:
             <input  id="InFecha" type="date">
         </label>
-        <a href="{{ path('series_miSerieFecha',{'usuario':app.user.id,'fecha':"now"|date("Y-m-d")}) }}" class="">Ver lo que hice ese dia</a>
+        {% set fecha = "2017-01-01" %}
+        <a href="{{ path('series_miSerieFecha',{'usuario':app.user.id,'fecha':fecha}) }}" class="">Ver lo que hice ese dia</a>
 
     </div>
 {% endblock %}
