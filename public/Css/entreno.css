@@ -1,0 +1,52 @@
+
+.miTabla{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 2em;
+}
+.dias{
+    display: flex;
+    background-color: #d7efb0;
+    border: 1.5px solid black;
+}
+.ejercicios{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ejercicio{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.botonEjer{
+    display: flex;
+    width: 33%;
+}
+
+.diaSemana{
+    background-color: #462467;
+    width: 15%;
+    min-width: 12%;
+    border-right: 3px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.diaSemana p{
+    font-size: 2em;
+    color: yellowgreen;
+    display: block;
+}
+
+.txtEjer{
+    margin:1em;
+    padding: 1em 0.6em;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+}
+
+

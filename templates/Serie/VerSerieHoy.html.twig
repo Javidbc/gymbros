@@ -5,6 +5,7 @@
 
 {% block content %}
     <div class="cuerpo">
+        {% if series %}
         <h1> Series que has hecho hoy del ejercicio {{ series[0].ejercicio }}</h1>
         <div class="cajatabla">
             <table>
@@ -31,6 +32,9 @@
                 </tbody>
             </table>
         </div>
+        {% else %}
+        <h2>¡Aún no has hecho ninguna serie hoy!</h2>
+        {% endif %}
         <div class="botonera">
             <a href="{{ path('usuarios_miTabla',{'tabla':app.user.miTabla,'id':app.user}) }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
 
