@@ -1,16 +1,17 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheets %}
     <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+    <script src="{{ asset('Scripts/fechita.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="cuerpo">
         <h1> Mi calendario</h1>
+        <label id="idUsuario" hidden>{{ app.user.id }}</label>
         <label>Escoge una fecha:
             <input  id="InFecha" type="date">
         </label>
-        {% set fecha = "2017-01-01" %}
-        <a href="{{ path('series_miSerieFecha',{'usuario':app.user.id,'fecha':fecha}) }}" class="">Ver lo que hice ese dia</a>
+        <button id="btnMagia">Ver series de este dia</button>
 
     </div>
 {% endblock %}

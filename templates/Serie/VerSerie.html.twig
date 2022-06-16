@@ -5,6 +5,7 @@
 
 {% block content %}
     <div class="cuerpo">
+        {% if series %}
         <h1> Series del dia {{ series[0].fechaSerie|date("Y-m-d") }}</h1>
         <div class="cajatabla">
             <table>
@@ -33,6 +34,11 @@
                 </tbody>
             </table>
         </div>
+        {% else %}
+        <h1>No hiciste ejercicio este dia</h1>
+        {% endif %}
+
+        <a href="{{ path('series_calendario') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al calendario</a>
 
     </div>
 {% endblock %}
