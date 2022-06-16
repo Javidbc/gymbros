@@ -3,24 +3,30 @@
     <link href="{{ asset('Css/Principal.css') }}" type="text/css" rel="stylesheet" />
 {% endblock %}
 
+
 {% block content %}
-    <div class="cuerpo">
-        <h1>Bienvenido a GYMBROS, tu gimnasio de confianza</h1>
-        <div class="fila">
-            <figure>
-                <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
-            </figure>
-            <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+    {% if app.user and app.user.activado == false %}
+        <h1>Tu cuenta está desactivada, comunícate con el administrador para activarla</h1>
+        <script src="{{ asset('Scripts/activado.js') }}"></script>
+    {% else %}
+        <div class="cuerpo">
+            <h1>Bienvenido a GYMBROS, tu gimnasio de confianza</h1>
+            <div class="fila">
+                <figure>
+                    <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
+                </figure>
+                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+            </div>
+            <div class="fila">
+                <iframe src="https://www.youtube.com/embed/MY_gyv3ZDLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+            </div>
+            <div class="fila">
+                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+                <figure>
+                    <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
+                </figure>
+            </div>
         </div>
-        <div class="fila">
-            <iframe src="https://www.youtube.com/embed/MY_gyv3ZDLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
-        </div>
-        <div class="fila">
-            <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
-            <figure>
-                <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
-            </figure>
-        </div>
-    </div>
+    {% endif %}
 {% endblock %}
