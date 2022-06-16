@@ -81,7 +81,8 @@ class Usuario implements UserInterface
     private $contrasenia;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
+     * @var string
      */
     private $brochureFilename;
 
