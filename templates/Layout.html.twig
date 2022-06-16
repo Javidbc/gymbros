@@ -42,7 +42,7 @@
                     </figure>
                 {% else %}
                     <figure class="miLogo">
-                        <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/') }}{{ app.user.brochureFilename }}" alt=""></a>
+                        <a href="{{ path('usuarios_perfil',{'id':app.user.id}) }}"><img src="{{ asset('Imagenes/Usuarios/') }}{{ app.user.brochureFilename }}" alt=""></a>
                     </figure>
                 {% endif %}
             {% else %}
