@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Ejercicio;
+use App\Entity\Aparato;
 use App\Form\EjercicioType;
+use App\Repository\AparatoRepository;
 use App\Repository\EjercicioRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -93,6 +95,23 @@ class EjercicioController extends AbstractController
         $datos = [];
         foreach ($ejercicios as $ejercicio){
             $datos[]=['id'=>$ejercicio->getId(),'text'=>$ejercicio->getNombre()];
+        }
+
+        return new JsonResponse($datos);
+    }
+
+    /**
+     * @Route ("/ejercicios/aparatos" , name="ejercicios_buscarAparatos")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function buscarAparatos(Request $request,AparatoRepository $aparatoRepository):Response
+    {
+        $busqueda=$request->get('q');
+        $aparatos=$aparatoRepository->recogerAparatos($busqueda);
+
+        $datos = [];
+        foreach ($aparatos as $aparato){
+            $datos[]=['id'=>$aparato->getId(),'text'=>$aparato->getNombreAparato()];
         }
 
         return new JsonResponse($datos);

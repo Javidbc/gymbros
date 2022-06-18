@@ -46,5 +46,14 @@ class AparatoRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function recogerAparatos(string $buscar)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT a FROM App\\Entity\\Aparato a WHERE a.nombreAparato LIKE :busqueda")
+            ->setParameter('busqueda','%'. $buscar .'%')
+            ->getResult();
+    }
+
 
 }

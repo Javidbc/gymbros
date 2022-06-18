@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Tetranz\Select2EntityBundle\Form\Type\Select2EntityType;
 
 class EjercicioType extends AbstractType
 {
@@ -27,10 +28,13 @@ class EjercicioType extends AbstractType
             ->add('url',TextType::class,[
                 'label'=>'Url del video explicativo'
             ])
-            ->add('aparatos',EntityType::class,[
+            ->add('aparatos',Select2EntityType::class,[
                 'label'=>'Elige uno o varios aparatos al que asociarlo',
                 'class'=>Aparato::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'remote_route'=>'ejercicios_buscarAparatos',
+                'placeholder'=>'selecciona los aparatos',
+                'text_property'=>'nombreAparato'
             ])
             /*->add('dias')*/
         ;
