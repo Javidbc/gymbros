@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        <h1> Horarios disponibles</h1>
+                {%  for maquina in maquinas %}
+                    <p>{{ maquina }}</p>
+                    <a href="{{ path('reservas_guardar',{'usuario':app.user.id,'maquina':app.request.pathinfo|split('/')[4],'fecha':app.request.pathinfo|split('/')[3],'horario':maquina.id}) }}">Reservar a esta hora </a>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No hay maquinas disponibles</td>
+                    </tr>
+                {% endfor %}
+        <a href="{{ path('reservas_listar') }}" class="btnVolver">Volver a las reservas</a>
+    </div>
+
+{% endblock %}

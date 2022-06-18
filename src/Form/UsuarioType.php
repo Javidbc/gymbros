@@ -6,6 +6,7 @@ use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -32,8 +33,9 @@ class UsuarioType extends AbstractType
             ->add('telefono',TextType::class,[
                 'label'=>'Teléfono del usuario'
             ])
-            ->add('fechaNacimiento',BirthdayType::class,[
-                'label'=>'Fecha de Nacimiento del usuario'
+            ->add('fechaNacimiento',DateType::class,[
+                'label'=>'Fecha de Nacimiento del usuario',
+                'widget'=>'single_text'
             ])
             ->add('correo',EmailType::class,[
                 'label'=>'Correo del usuario'

@@ -39,4 +39,14 @@ class MaquinaRepository extends ServiceEntityRepository
             ->createQuery("SELECT m FROM App\\Entity\\Maquina m")
             ->getResult();
     }
+
+    public function maquinasNoReservadas($fecha,$horario):array
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT r FROM App\\Entity\\Maquina r WHERE r not in(SELECT reser.maquina FROM App\\Entity\\Reserva reser WHERE reser.fechaReserva =:fecha AND reser.horario =:horario)")
+            ->setParameter('fecha',$fecha)
+            ->setParameter('horario',$horario)
+            ->getResult();
+    }
 }

@@ -1,13 +1,27 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheets %}
     <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+    <script src="{{ asset('Scripts/reservas.js') }}"></script>
 {% endblock %}
 
 {% block content %}
     <div class="cuerpo">
         <h1> Listado de reservas</h1>
         <div class="cajaMas">
-            <a href="{{ path('reservas_nuevo',{'usuario':app.user.id}) }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Hacer una reserva</a>
+            <label>Escoge una fecha:
+                <input  id="InFecha" type="date">
+            </label>
+            <label class="seleccionador">
+                <select id="miselect" class="ddlGrupo">
+                    {% for maquina in maquinas %}
+                        {% if maquina.aparato.reservable %}
+                        <option value="{{ maquina.id }}">{{ maquina }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </label>
+            <button id="btnMagia">Ver horarios</button>
+            {#  <a href="{{ path('reservas_nuevo',{'usuario':app.user.id}) }}" class="btnDefecto"><i class=" fa fa-user-plus"></i>Hacer una reserva</a>#}
         </div>
         <div class="cajatabla">
             <table>
@@ -26,7 +40,7 @@
                         <td>{{ reserva.usuario }}</td>
                         <td>{{ reserva.maquina }}</td>
                         <td>{{ reserva.horario }}</td>
-                        <td>{{ reserva.fechaReserva|date("m/d/Y") }}</td>
+                        <td>{{ reserva.fechaReserva|date("d/m/Y") }}</td>
                         <td class="cajaIconos">
                             <a class="fa fa-pencil-alt iconos" href="{{ path('reservas_modificar',{'id':reserva.id}) }}" ></a>
                             <a class="fa fa-trash-alt iconos" href="{{ path('reservas_eliminar',{'id':reserva.id}) }}" ></a>

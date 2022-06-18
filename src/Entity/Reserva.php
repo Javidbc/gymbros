@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Reserva
 {
 
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

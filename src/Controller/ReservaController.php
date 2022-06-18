@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Horario;
+use App\Entity\Maquina;
 use App\Entity\Reserva;
 use App\Entity\Usuario;
 use App\Form\ReservaType;
+use App\Repository\HorarioRepository;
+use App\Repository\MaquinaRepository;
 use App\Repository\ReservaRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,6 +28,21 @@ class ReservaController extends AbstractController
         $reserva = $reservaRepository->nuevo();
         $reserva->setUsuario($usuario);
         return $this->modificarReserva($request,$reservaRepository,$reserva);
+    }
+
+    /**
+     * @Route("reservar/{usuario}/{maquina}/{fecha}/{horario}", name="reservas_guardar")
+     */
+    public function guardarReserva(ReservaRepository $reservaRepository,Usuario $usuario,Maquina $maquina,string $fecha,Horario $horario) : Response
+    {
+        $reserva=$reservaRepository->nuevo();
+        $reserva->setUsuario($usuario);
+        $reserva->setMaquina($maquina);
+        $reserva->setFechaReserva(\DateTime::createFromFormat('Y-m-d',$fecha));
+        $reserva->setHorario($horario);
+        $reservaRepository->save();
+        return $this->redirectToRoute("reservas_listar");
+
     }
 
     /**
@@ -75,9 +94,19 @@ class ReservaController extends AbstractController
      * @Route ("/reservas", name="reservas_listar")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function verReservas(ReservaRepository $reservaRepository):Response
+    public function verReservas(ReservaRepository $reservaRepository,MaquinaRepository $maquinaRepository):Response
     {
         $reserva=$reservaRepository->verReservas();
-        return  $this->render('Reserva/VerReservas.html.twig',['reservas'=>$reserva]);
+        $maquinas=$maquinaRepository->findAll();
+        return  $this->render('Reserva/VerReservas.html.twig',['reservas'=>$reserva,'maquinas'=>$maquinas]);
+    }
+
+    /**
+     * @Route ("/reservar/maquinas/{fecha}/{horario}", name="reservar_maquina")
+     */
+    public function verMaquinasReservables(ReservaRepository $reservaRepository,$fecha,$horario):Response
+    {
+        $reserva=$reservaRepository->horariosDisponibles($fecha,$horario);
+        return $this->render('Reserva/maquinasDisponibles.html.twig',['maquinas'=>$reserva]);
     }
 }
