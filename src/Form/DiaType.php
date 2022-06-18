@@ -10,6 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Tetranz\Select2EntityBundle\Form\Type\Select2EntityType;
 
 class DiaType extends AbstractType
 {
@@ -32,10 +33,13 @@ class DiaType extends AbstractType
                 'class'=>Tabla::class,
                 'multiple'=>true
             ])*/
-            ->add('ejercicios',EntityType::class,[
+            ->add('ejercicios',Select2EntityType::class,[
                 'label'=>'Elige tus ejercicios',
                 'class'=>Ejercicio::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'remote_route'=>'dias_buscarEjercicios',
+                'placeholder'=>'selecciona uno o varios ejercicios',
+                'text_property'=>'nombre'
             ])
         ;
     }

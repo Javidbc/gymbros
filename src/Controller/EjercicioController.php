@@ -7,6 +7,7 @@ use App\Form\EjercicioType;
 use App\Repository\EjercicioRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -76,7 +77,24 @@ class EjercicioController extends AbstractController
     public function verEjercicios(EjercicioRepository $ejercicioRepository):Response
     {
         $ejercicios=$ejercicioRepository->verEjercicios();
-        $gruposMusculares=$ejercicioRepository->findGruposMusculares();
+        $gruposMusculares=$ejercicioRepository->sacarGruposMusculares();
         return  $this->render('Ejercicio/VerEjercicios.html.twig',['ejercicios'=>$ejercicios,'grupos'=>$gruposMusculares]);
+    }
+
+    /**
+     * @Route ("/dia/ejercicios" , name="dias_buscarEjercicios")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function buscarEjercicios(Request $request,EjercicioRepository $ejercicioRepository):Response
+    {
+        $busqueda=$request->get('q');
+        $ejercicios=$ejercicioRepository->recogerEjercicios($busqueda);
+
+        $datos = [];
+        foreach ($ejercicios as $ejercicio){
+            $datos[]=['id'=>$ejercicio->getId(),'text'=>$ejercicio->getNombre()];
+        }
+
+        return new JsonResponse($datos);
     }
 }

@@ -38,11 +38,20 @@ class EjercicioRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findGruposMusculares() :array
+    public function sacarGruposMusculares() :array
     {
         return $this
             ->getEntityManager()
             ->createQuery("SELECT DISTINCT g.grupoMuscular FROM App\\Entity\\Ejercicio g ")
+            ->getResult();
+    }
+
+    public function recogerEjercicios(string $buscar)
+    {
+        return $this
+            ->getEntityManager()
+            ->createQuery("SELECT e FROM App\\Entity\\Ejercicio e WHERE e.nombre LIKE :busqueda")
+            ->setParameter('busqueda','%'. $buscar .'%')
             ->getResult();
     }
 }

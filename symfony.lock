@@ -407,6 +407,9 @@
     "symfony/yaml": {
         "version": "v4.4.37"
     },
+    "tetranz/select2entity-bundle": {
+        "version": "v3.1.0"
+    },
     "twig/extra-bundle": {
         "version": "v3.3.8"
     },
