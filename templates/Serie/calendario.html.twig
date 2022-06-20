@@ -7,11 +7,14 @@
 {% block content %}
     <div class="cuerpo">
         <h1> Mi calendario</h1>
+        <h3>Aquí puedes mirar las series que hiciste anteriormente</h3>
         <label id="idUsuario" hidden>{{ app.user.id }}</label>
-        <label>Escoge una fecha:
-            <input  id="InFecha" type="date">
+        <label class="lblCalendario">Escoge una fecha para ver tus series:
+            <input class="iCalendario" id="InFecha" type="date" onkeydown="false">
+            <label id="msgValidacion" class="aviso"></label>
         </label>
-        <button id="btnMagia">Ver series de este dia</button>
+
+        <button  class="btnVolver" id="btnMagia">Ver series de este dia</button>
 
     </div>
 {% endblock %}

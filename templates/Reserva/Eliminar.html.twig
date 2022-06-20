@@ -3,13 +3,13 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Eliminar {{ aparato.nombreAparato }}</h1>
+    <h1>Eliminar la reserva de {{ reserva.usuario }} de {{ reserva.maquina }} a las {{ reserva.horario }}</h1>
 
     <div class="alert alert-danger">
-        ¿Estás seguro de eliminar este aparato?
+        ¿Estás seguro de eliminar esta reserva?
     </div>
     <form method="post">
         <button type="submit" name="confirmar" value="si" class="btnEliminar"><i class="fa fa-trash-alt"></i> Eliminar definitivamente</button>
-        <a href="{{ path('aparatos_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
+        <a href="{{ path('reservas_listar') }}" class="btnVolver"><i class="fa fa-arrow-left"></i> Volver al listado</a>
     </form>
 {% endblock %}

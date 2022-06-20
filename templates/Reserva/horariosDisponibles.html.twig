@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('Css/usuarios.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    <div class="cuerpo">
+        {% if horarios %}
+            <h1> Horarios disponibles</h1>
+            <div class="cajaReservas">
+                {%  for horario in horarios %}
+                    <div class="cajaReserva">
+                        <p>{{ horario }}</p>
+                        <a class="btnConfirmar" href="{{ path('reservas_guardar',{'usuario':app.user.id,'maquina':app.request.pathinfo|split('/')[4],'fecha':app.request.pathinfo|split('/')[3],'horario':horario.id}) }}">Reservar a esta hora </a>
+                    </div>
+                {% else %}
+                    <h2>No hay horarios disponibles</h2>
+                {% endfor %}
+            </div>
+        {% else %}
+            <h1> Maquinas disponibles</h1>
+            <div class="cajaReservas">
+                {%  for maquina in maquinas %}
+                    <div class="cajaReserva">
+                        <p>{{ maquina }}</p>
+                        {#  <a class="btnConfirmar" href="{{ path('reservas_guardar',{'usuario':app.user.id,'maquina':maquina.id,'fecha':app.request.pathinfo|split('/')[3],'horario':app.request.pathinfo|split('/')[4]}) }}">Reservar esta maquina </a>#}
+                    </div>
+                {% else %}
+                    <h2>No hay maquinas disponibles</h2>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <a href="{{ path('reservas_listar') }}" class="btnVolver">Volver a las reservas</a>
+    </div>
+
+{% endblock %}
