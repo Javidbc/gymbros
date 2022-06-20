@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-
+    <script src="{{ asset('Scripts/layout.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -56,11 +56,8 @@
     <div class="contenido">
         {% for type,messages in app.flashes %}
             {% for message in messages %}
-                <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                <div class="alert hide {{ type }}" id="alerta" role="alert">
                     {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
             {% endfor %}
         {% endfor %}

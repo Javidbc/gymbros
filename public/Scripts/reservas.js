@@ -35,7 +35,7 @@ function cambiar2(e){
             document.getElementById("msgValidacion2").textContent="Selecciona una fecha mayor a la de hoy"
         }
         else{
-            location.assign("http://127.0.0.1:8000/reservar/maquinas/"+mifecha+"/"+horario+"/"+aparato);
+            location.assign("http://127.0.0.1:8000/reservar/maquinas/"+aparato+"/"+mifecha+"/"+horario);
         }
     }
     else{

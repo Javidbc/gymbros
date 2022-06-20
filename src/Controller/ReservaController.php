@@ -114,12 +114,12 @@ class ReservaController extends AbstractController
     }
 
     /**
-     * @Route ("/reservar/maquinas/{fecha}/{horario}/{aparato}", name="reservar_porMaquina")
+     * @Route ("/reservar/maquinas/{aparato}/{fecha}/{horario}", name="reservar_porMaquina")
      */
-    public function verMaquinasReservables(ReservaRepository $reservaRepository,string $fecha,string $horario,string $aparato):Response
+    public function verMaquinasReservables(ReservaRepository $reservaRepository,string $aparato,string $fecha,string $horario):Response
     {
-        $reserva=$reservaRepository->maquinasDisponibles($fecha,$horario,$aparato);
-        return $this->render('Reserva/horariosDisponibles.html.twig',['maquinas'=>$reserva]);
+        $reserva=$reservaRepository->maquinasDisponibles($aparato,$fecha,$horario);
+        return $this->render('Reserva/horariosDisponibles2.html.twig',['maquinas'=>$reserva]);
     }
 
 }

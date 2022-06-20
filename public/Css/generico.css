@@ -193,3 +193,12 @@ tr{
 .form-inline{
     display: flex;
 }
+
+.exito{
+    background-color: rgba(74, 234, 74, 0.71);
+    color: green;
+}
+.error{
+    background-color: rgba(225, 80, 80, 0.78);
+    color: red;
+}
