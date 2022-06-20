@@ -85,7 +85,7 @@ class EjercicioController extends AbstractController
 
     /**
      * @Route ("/dia/ejercicios" , name="dias_buscarEjercicios")
-     * @Security("is_granted('ROLE_MONITOR')")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function buscarEjercicios(Request $request,EjercicioRepository $ejercicioRepository):Response
     {
@@ -99,6 +99,8 @@ class EjercicioController extends AbstractController
 
         return new JsonResponse($datos);
     }
+
+
 
 
 }

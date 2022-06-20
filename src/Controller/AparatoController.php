@@ -80,6 +80,16 @@ class AparatoController extends AbstractController
     }
 
     /**
+     * @Route ("/aparatos/verAparato/{aparato}", name="aparatos_verAparato")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function asignarEjercicio(AparatoRepository $aparatoRepository,string $aparato): Response
+    {
+        $aparato=$aparatoRepository->verAparato($aparato);
+        return $this->render('Aparato/verAparato.html.twig',['aparato'=>$aparato]);
+    }
+
+    /**
      * @Route ("/aparatos/reservable/{id}", name="aparatos_cambRes")
      * @Security("is_granted('ROLE_ADMIN')")
      */
