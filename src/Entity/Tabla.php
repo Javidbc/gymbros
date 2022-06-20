@@ -37,7 +37,7 @@ class Tabla
     private $nombreTabla;
 
     /**
-     * @ORM\Column (type="boolean")
+     * @ORM\Column (type="boolean",nullable=true)
      * @var boolean
      */
     private $vistoBueno;

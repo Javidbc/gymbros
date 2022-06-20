@@ -22,14 +22,14 @@ class TablaController extends AbstractController
     {
         $tabla = $tablaRepository->nuevo();
         $tabla->setCreador($creador);
-        return $this->modificarTabla($request,$tablaRepository,$tabla);
+        return $this->modificarTabla($request,$tablaRepository,$tabla,$creador);
     }
 
     /**
-     * @Route ("/tablas/modificar/{id}", name="tablas_modificar")
+     * @Route ("/tablas/modificar/{id}/{usuario}", name="tablas_modificar")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function modificarTabla(Request $request, TablaRepository $tablaRepository, Tabla $tabla): Response
+    public function modificarTabla(Request $request, TablaRepository $tablaRepository, Tabla $tabla, Usuario $usuario): Response
     {
         $form = $this->createForm(TablaType::class, $tabla);
         $form->handleRequest($request);
@@ -38,7 +38,12 @@ class TablaController extends AbstractController
             try {
                 $tablaRepository->save();
                 $this->addFlash('exito', 'Cambios guardados con éxito');
+                if($usuario->isEsMonitor()){
                 return $this->redirectToRoute('tablas_listar');
+                }
+                else{
+                    return $this->redirectToRoute('tablas_listarUser',['usuario'=>$usuario->getId()]);
+                }
             } catch (\Exception $exception) {
                 $this->addFlash('error', 'Error al guardar los cambios');
             }
@@ -50,17 +55,22 @@ class TablaController extends AbstractController
     }
 
     /**
-     * @Route ("/tablas/eliminar/{id}", name="tablas_eliminar")
+     * @Route ("/tablas/eliminar/{id}/{usuario}", name="tablas_eliminar")
      * @Security("is_granted('ROLE_USER')")
      */
 
-    public function eliminarTabla(Request $request, TablaRepository $tablaRepository,Tabla $tabla):Response
+    public function eliminarTabla(Request $request, TablaRepository $tablaRepository,Tabla $tabla,Usuario $usuario):Response
     {
         if ($request->get('confirmar', false)) {
             try {
                 $tablaRepository->delete($tabla);
                 $this->addFlash('exito', 'Tabla eliminada con exito');
-                return $this->redirectToRoute('tablas_listar');
+
+                if($usuario->isEsMonitor()==true)
+                    return $this->redirectToRoute('tablas_listar');
+                else
+                    return $this->redirectToRoute('tablas_listarUser',['usuario'=>$usuario->getId()]);
+
             } catch (\Exception $exception) {
                 $this->addFlash('error', 'Error al eliminar la tabla');
             }
@@ -72,7 +82,7 @@ class TablaController extends AbstractController
 
     /**
      * @Route ("/tablas", name="tablas_listar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_MONITOR')")
      */
     public function verTablas(TablaRepository $tablaRepository):Response
     {
@@ -98,6 +108,25 @@ class TablaController extends AbstractController
     {
         $tabla=$tablaRepository->verTabla($tabla);
         return $this->render('Tabla/verTabla.html.twig',['tabla'=>$tabla]);
+    }
+
+    /**
+     * @Route ("/tablas/recomentar/{id}", name="tablas_recomendar")
+     * @Security("is_granted('ROLE_MONITOR')")
+     */
+    public function cambiaRecomendable(TablaRepository $tablaRepository, Tabla $tabla):Response
+    {
+        $estado=$tabla->isVistoBueno();
+        if ($estado){
+            $tabla->setVistoBueno(false);
+        }
+        else{
+            $tabla->setVistoBueno(true);
+        }
+        $tablaRepository->save();
+
+
+        return $this->redirectToRoute("tablas_listar");
     }
 
 

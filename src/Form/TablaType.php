@@ -21,11 +21,11 @@ class TablaType extends AbstractType
             ->add('nombreTabla',TextType::class,[
                 'label'=>'Nombre de la tabla'
             ])
-            ->add('vistoBueno',CheckboxType::class,[
+            /*->add('vistoBueno',CheckboxType::class,[
                 'label'=>'Tabla recomendada?',
                 'required'=>false,
                 'empty_data'  => null
-            ])
+            ])*/
             /*->add('dias',EntityType::class,[
                 'label'=>'Dia de la semana',
                 'class'=>Dia::class

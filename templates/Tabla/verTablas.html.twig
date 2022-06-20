@@ -16,6 +16,11 @@
                     <th>Nombre Tabla</th>
                     <th>Creador</th>
                     <th>Ver tabla</th>
+                    <th>
+                    {% if(is_granted('ROLE_MONITOR')) %}
+                    Estado
+                    {% endif %}
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
@@ -25,9 +30,24 @@
                         <td>{{ tabla.nombreTabla }}</td>
                         <td>{{ tabla.creador }}</td>
                         <td><a class="fa fa-eye iconos" href="{{ path('tablas_verTabla',{'tabla':tabla.id}) }}" ></a></td>
+                        <td>
+                        {% if(is_granted('ROLE_MONITOR')) %}
+                            <div class="cajaBoton">
+                                {% if tabla.vistoBueno %}
+                                    <a href="{{ path("tablas_recomendar",{'id':tabla.id}) }}" class="btnActivar">Recomendable</a>
+
+                                {% else %}
+                                    <a href="{{ path("tablas_recomendar",{'id':tabla.id}) }}" class="btnDesactivar">No recomendable</a>
+
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        </td>
                         <td class="cajaIconos">
-                            <a class="fa fa-pencil-alt iconos" href="{{ path('tablas_modificar',{'id':tabla.id}) }}" ></a>
-                            <a class="fa fa-trash-alt iconos" href="{{ path('tablas_eliminar',{'id':tabla.id}) }}" ></a>
+                        {% if tabla.creador == app.user %}
+                            <a class="fa fa-pencil-alt iconos" href="{{ path('tablas_modificar',{'id':tabla.id,'usuario':app.user.id}) }}" ></a>
+                            <a class="fa fa-trash-alt iconos" href="{{ path('tablas_eliminar',{'id':tabla.id,'usuario':app.user.id}) }}" ></a>
+                        {% endif %}
                         </td>
 
                     </tr>
