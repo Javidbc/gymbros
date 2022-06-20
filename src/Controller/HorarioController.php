@@ -15,7 +15,7 @@ class HorarioController extends AbstractController
 {
     /**
      * @Route ("/horarios/nuevo", name="horarios_nuevo")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_MONITOR')")
      */
     public function nuevoUsuario(Request $request, HorarioRepository $horarioRepository): Response
     {
@@ -25,7 +25,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route ("/horarios/modificar/{id}", name="horarios_modificar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_MONITOR')")
      */
     public function modificarUsuario(Request $request,HorarioRepository $horarioRepository, Horario $horario): Response
     {
@@ -48,7 +48,7 @@ class HorarioController extends AbstractController
     }
     /**
      * @Route ("/horarios/eliminar/{id}", name="horarios_eliminar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_MONITOR')")
      */
 
     public function eliminarUsuario(Request $request, HorarioRepository $horarioRepository,Horario $horario):Response
@@ -69,7 +69,7 @@ class HorarioController extends AbstractController
 
     /**
      * @Route ("/horarios", name="horarios_listar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_MONITOR')")
      */
     public function verHorarios(HorarioRepository $horarioRepository):Response
     {

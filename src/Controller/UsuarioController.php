@@ -21,7 +21,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/nuevo", name="usuarios_nuevo")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository, SluggerInterface $slugger): Response
     {
@@ -31,7 +31,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/modificar/{id}", name="usuarios_modificar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function modificarUsuario(Request $request,UsuarioRepository $usuarioRepository, Usuario $usuario, SluggerInterface $slugger): Response
     {
@@ -133,7 +133,7 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/eliminar/{id}", name="usuarios_eliminar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
 
     public function eliminarUsuario(Request $request, UsuarioRepository $usuarioRepository,Usuario $usuario):Response
@@ -154,9 +154,9 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios", name="usuarios_listar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function verEjercicios(UsuarioRepository $usuarioRepository):Response
+    public function verUsuarios(UsuarioRepository $usuarioRepository):Response
     {
         $usuarioRepository=$usuarioRepository->verUsuarios();
         return  $this->render('Usuario/VerUsuarios.html.twig',['usuarios'=>$usuarioRepository]);
@@ -164,9 +164,9 @@ class UsuarioController extends AbstractController
 
     /**
      * @Route ("/usuarios/activado/{id}", name="usuarios_activar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
-    public function cambiaReservable(UsuarioRepository $usuarioRepository, Usuario $usuario):Response
+    public function activarUsuario(UsuarioRepository $usuarioRepository, Usuario $usuario):Response
     {
         $estado=$usuario->isActivado();
         if ($estado){

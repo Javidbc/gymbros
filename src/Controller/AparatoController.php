@@ -16,7 +16,7 @@ class AparatoController extends AbstractController
 {
     /**
      * @Route ("/aparatos/nuevo", name="aparatos_nuevo")
-     *@Security("is_granted('ROLE_USER')")
+     *@Security("is_granted('ROLE_ADMIN')")
      */
     public function nuevoAparato(Request $request, AparatoRepository $aparatoRepository): Response
     {
@@ -26,7 +26,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/modificar/{id}", name="aparatos_modificar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function modificarAparato(Request $request,AparatoRepository $aparatoRepository, Aparato $aparato): Response
     {
@@ -50,7 +50,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos/eliminar/{id}", name="aparatos_eliminar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
 
     public function eliminarAparato(Request $request, AparatoRepository $aparatoRepository,Aparato $aparato):Response
@@ -71,7 +71,7 @@ class AparatoController extends AbstractController
 
     /**
      * @Route ("/aparatos",name="aparatos_listar")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function verAparatos( AparatoRepository $aparatoRepository):Response
     {
@@ -80,18 +80,8 @@ class AparatoController extends AbstractController
     }
 
     /**
-     * @Route ("/aparatos/verAparato/{aparato}", name="aparatos_verAparato")
-     * @Security("is_granted('ROLE_USER')")
-     */
-    public function asignarEjercicio(AparatoRepository $aparatoRepository,string $aparato): Response
-    {
-        $aparato=$aparatoRepository->verAparato($aparato);
-        return $this->render('Aparato/verAparato.html.twig',['aparato'=>$aparato]);
-    }
-
-    /**
      * @Route ("/aparatos/reservable/{id}", name="aparatos_cambRes")
-     * @Security("is_granted('ROLE_USER')")
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function cambiaReservable(AparatoRepository $aparatoRepository, Aparato $aparato):Response
     {

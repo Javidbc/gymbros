@@ -26,7 +26,11 @@
 
 
     <div class="botonera">
-        <a href="{{ path('tablas_listar') }}" class="btnVolver">Cambiar de tabla</a>
+        {% if is_granted('ROLE_MONITOR') %}
+            <a class="btnVolver" href="{{ path('tablas_listar') }}"><i class="fa-solid fa-table-list"></i>Cambiar de tabla</a>
+        {% else %}
+            <a class="btnVolver" href="{{ path('tablas_listarUser',{'usuario':app.user.id }) }}"><i class="fa-solid fa-table-list"></i>Cambiar de tabla</a>
+        {% endif %}
     </div>
 
 

@@ -37,7 +37,9 @@
         </tbody>
     </table>
     <div class="botonera">
+        {% if tabla[0].creador == app.user %}
         <a href="{{ path('dias_nuevo',{'tabla':tabla[0].id}) }}" class="btnVolver">Crear un nuevo día</a>
+        {% endif %}
         <a href="{{ path('usuarios_asignarTabla',{'usuario':app.user.id,'tabla':tabla[0].id}) }}" class="btnVolver">Utilizar esta tabla</a>
         {% if is_granted('ROLE_MONITOR') %}
             <a class="btnVolver" href="{{ path('tablas_listar') }}"><i class="fa-solid fa-table-list"></i>Volver al listado</a>
