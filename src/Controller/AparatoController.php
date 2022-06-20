@@ -7,6 +7,7 @@ use App\Form\AparatoType;
 use App\Repository\AparatoRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -105,5 +106,22 @@ class AparatoController extends AbstractController
 
 
         return $this->redirectToRoute("aparatos_listar");
+    }
+
+    /**
+     * @Route ("/ejercicios/aparatos" , name="ejercicios_buscarAparatos")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function buscarAparatos(Request $request,AparatoRepository $aparatoRepository):Response
+    {
+        $busqueda=$request->get('q');
+        $aparatos=$aparatoRepository->recogerAparatos($busqueda);
+
+        $datos = [];
+        foreach ($aparatos as $aparato){
+            $datos[]=['id'=>$aparato->getId(),'text'=>$aparato->getNombreAparato()];
+        }
+
+        return new JsonResponse($datos);
     }
 }

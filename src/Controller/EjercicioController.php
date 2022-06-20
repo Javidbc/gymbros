@@ -100,20 +100,5 @@ class EjercicioController extends AbstractController
         return new JsonResponse($datos);
     }
 
-    /**
-     * @Route ("/ejercicios/aparatos" , name="ejercicios_buscarAparatos")
-     * @Security("is_granted('ROLE_USER')")
-     */
-    public function buscarAparatos(Request $request,AparatoRepository $aparatoRepository):Response
-    {
-        $busqueda=$request->get('q');
-        $aparatos=$aparatoRepository->recogerAparatos($busqueda);
 
-        $datos = [];
-        foreach ($aparatos as $aparato){
-            $datos[]=['id'=>$aparato->getId(),'text'=>$aparato->getNombreAparato()];
-        }
-
-        return new JsonResponse($datos);
-    }
 }

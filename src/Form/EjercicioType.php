@@ -28,14 +28,19 @@ class EjercicioType extends AbstractType
             ->add('url',TextType::class,[
                 'label'=>'Url del video explicativo'
             ])
-            ->add('aparatos',Select2EntityType::class,[
+            ->add('aparatos',EntityType::class,[
+                'label'=>'Elige uno o varios aparatos al que asociarlo',
+                'class'=>Aparato::class,
+                'multiple'=>true
+            ])
+            /*->add('aparatos',Select2EntityType::class,[
                 'label'=>'Elige uno o varios aparatos al que asociarlo',
                 'class'=>Aparato::class,
                 'multiple'=>true,
                 'remote_route'=>'ejercicios_buscarAparatos',
                 'placeholder'=>'selecciona los aparatos',
                 'text_property'=>'nombreAparato'
-            ])
+            ])*/
             /*->add('dias')*/
         ;
     }
