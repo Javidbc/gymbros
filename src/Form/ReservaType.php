@@ -27,7 +27,8 @@ class   ReservaType extends AbstractType
         $builder
             ->add('fechaReserva',DateType::class,[
                 'label'=>'Fecha de la reserva',
-                'html5'=>true
+                'html5'=>true,
+                'widget'=>'single_text'
             ])
             ->add('maquina',EntityType::class,[
                 'label'=>'Elige una maquina que reservar',
