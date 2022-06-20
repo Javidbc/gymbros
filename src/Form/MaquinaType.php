@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class MaquinaType extends AbstractType
 {
@@ -17,7 +19,16 @@ class MaquinaType extends AbstractType
     {
         $builder
             ->add('etiqueta',TextType::class,[
-                'label'=>'Etiqueta de la maquina'
+                'label'=>'Etiqueta de la maquina',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 3,
+                        'max'=>100,
+                        'minMessage'=>'Debe de tener un mínimo de 3 caracteres',
+                        'maxMessage'=>'Debe de tener un máximo de 100 caracteres'
+                    ]),
+                ]
             ])
 
         ;

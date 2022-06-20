@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class AparatoType extends AbstractType
 {
@@ -17,7 +19,16 @@ class AparatoType extends AbstractType
     {
         $builder
             ->add('nombreAparato',TextType::class,[
-                'label'=>'Nombre del Aparato'
+                'label'=>'Nombre del Aparato',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 3,
+                        'max'=>50,
+                        'minMessage'=>'Debe de tener un mínimo de 3 caracteres',
+                        'maxMessage'=>'Debe de tener un máximo de 50 caracteres'
+                    ]),
+                ]
             ])
             ->add('reservable',CheckboxType::class,[
                 'label'=>'¿Es reservable?',

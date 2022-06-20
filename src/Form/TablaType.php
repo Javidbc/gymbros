@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class TablaType extends AbstractType
 {
@@ -19,7 +21,16 @@ class TablaType extends AbstractType
     {
         $builder
             ->add('nombreTabla',TextType::class,[
-                'label'=>'Nombre de la tabla'
+                'label'=>'Nombre de la tabla',
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 3,
+                        'max'=>50,
+                        'minMessage'=>'Debe de tener un mínimo de 3 caracteres',
+                        'maxMessage'=>'Utiliza un nombre más corto para tu tabla'
+                    ]),
+                ]
             ])
             /*->add('vistoBueno',CheckboxType::class,[
                 'label'=>'Tabla recomendada?',
