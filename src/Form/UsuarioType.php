@@ -83,7 +83,7 @@ class UsuarioType extends AbstractType
                     ])
                 ]
             ])
-            ->add('contrasenia',PasswordType::class,[
+            /*->add('contrasenia',PasswordType::class,[
                 'label'=>'Contraseña temporal del usuario',
                 'constraints' => [
                     new NotBlank(),
@@ -94,7 +94,7 @@ class UsuarioType extends AbstractType
                         'maxMessage'=>'Debe de tener un máximo de 20 caracteres'
                     ]),
                 ]
-            ])
+            ])*/
             ->add('brochure', FileType::class, [
                 'label' => 'Sube tu foto aqui',
                 'mapped' => false,

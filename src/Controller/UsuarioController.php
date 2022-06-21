@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Tabla;
 use App\Entity\Usuario;
+use App\Form\CambioContraType;
 use App\Form\PerfilType;
 use App\Form\UsuarioType;
 use App\Repository\UsuarioRepository;
@@ -14,6 +15,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class UsuarioController extends AbstractController
@@ -26,6 +28,7 @@ class UsuarioController extends AbstractController
     public function nuevoUsuario(Request $request, UsuarioRepository $usuarioRepository, SluggerInterface $slugger): Response
     {
         $usuario = $usuarioRepository->nuevo();
+        $usuario->setContrasenia('gymbros');
         return $this->modificarUsuario($request,$usuarioRepository,$usuario,$slugger);
     }
 
@@ -202,5 +205,36 @@ class UsuarioController extends AbstractController
 
 
         return $this->redirectToRoute("tablas_listar");
+    }
+
+    /**
+     * @Route("/usuario/cambioContra", name="usuarios_cambioContra")
+     * @Security("is_granted('ROLE_USER')")
+     */
+    public function cambiarCon(Request $request, UsuarioRepository $usuarioRepository, UserPasswordEncoderInterface $passwordEncoder): Response
+    {
+        $form = $this->createForm(CambioContraType::class, $this->getUser());
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            try {
+                $this->getUser()->setContrasenia(
+                    $passwordEncoder->encodePassword(
+                        $this->getUser(), $form->get('contraNueva')->get('first')->getData()
+                    )
+                );
+
+                $usuarioRepository->save();
+
+                return $this->redirectToRoute('principal');
+            } catch (\Exception $e) {
+                $this->addFlash('error', 'Error al guardar los cambios');
+            }
+        }
+
+        return $this->render('Usuario/cambioContra.html.twig', [
+            'usuario' => $this->getUser(),
+            'form' => $form->createView()
+        ]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Usuario;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -30,16 +31,14 @@ class PerfilType extends AbstractType
                     ])
                 ]
             ])
-            ->add('contrasenia',PasswordType::class,[
-                'label'=>'Contraseña',
+            ->add('correo',EmailType::class,[
+                'label'=>'Correo del usuario',
                 'constraints' => [
                     new NotBlank(),
-                    new Length([
-                        'min' => 3,
-                        'max'=>20,
-                        'minMessage'=>'Debe de tener un mínimo de 3 caracteres',
-                        'maxMessage'=>'Debe de tener un máximo de 20 caracteres'
-                    ]),
+                    new Regex([
+                        'pattern' => '/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/',
+                        'message'=> 'Introduce un correo electrónico valido'
+                    ])
                 ]
             ])
             ->add('brochure', FileType::class, [
