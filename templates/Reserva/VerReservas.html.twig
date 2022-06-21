@@ -25,7 +25,7 @@
             <label id="msgValidacion" class="aviso"></label>
         </div>
 
-        <div class="cajaOpciones">
+        {#  <div class="cajaOpciones">
             <label>Escoge una fecha para reservar:
                 <input class="iCalendario" id="InFecha2" type="date">
             </label>
@@ -50,7 +50,7 @@
             </label>
             <button class="btnVolver" id="btnMagia2">Ver maquinas disponibles</button>
             <label id="msgValidacion2" class="aviso"></label>
-        </div>
+        </div>#}
         <div class="cajatabla">
             <table>
                 <thead>
@@ -78,10 +78,6 @@
                             <a class="fa fa-trash-alt iconos" href="{{ path('reservas_eliminar',{'id':reserva.id}) }}" ></a>
                         </td>
                     </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="5">No tienes ninguna reserva hecha</td>
-                        </tr>
                     {% endif %}
                 {% else %}
                     <tr>

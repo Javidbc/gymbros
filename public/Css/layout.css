@@ -6,7 +6,7 @@ body{
     width: 100%;
 }
 .contenido{
-    min-height: 80vh;
+    min-height: 87vh;
     width: 100%;
 }
 /*menu navegacion*/
@@ -16,14 +16,11 @@ body{
     display: flex;
     justify-content: space-between;
     font-size: 1.2em;
-    height: 15vh;
+    height: 8vh;
     width: 100%;
     align-items: center;
 }
-.menuLayout img{
-    width: 100%;
-    min-width: 100px;
-}
+
 .menuLayout a{
     text-decoration: none;
     color: white;
@@ -32,7 +29,7 @@ body{
     padding-left: 1em;
 }
 .miLogo img{
-    max-height: 13vh;
+    max-height: 6vh;
 }
 
 
@@ -81,4 +78,34 @@ footer {
 footer p{
     padding: 1em;
     font-size: 0.8em;
+}
+.menuHamburguesa{
+    display:none;
+}
+.oculto{
+    display: none;
+}
+
+@media screen and (max-width:420px){
+    .menuLayout{
+        height: auto;
+        flex-direction: column;
+    }
+    .menuLayout ul{
+        flex-direction: column;
+    }
+    .menuLayout li{
+        font-size: 0.8em;
+    }
+    .menuHamburguesa{
+        display: block;
+        text-align: center;
+        color: white;
+        background-color: rgba(71, 15, 110,1);
+        width: 100%;
+    }
+    .menuLayout_derecha{
+        justify-content: center;
+        padding-right: 0;
+    }
 }

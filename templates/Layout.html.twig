@@ -1,10 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
-    <script src="{{ asset('Scripts/layout.js') }}"></script>
 {% endblock %}
 
 {% block body %}
-    <nav class="menuLayout">
+    <script src="{{ asset('Scripts/layout.js') }}"></script>
+
+    <nav class="menuLayout" id="miMenu">
         <figure class="miLogo">
             <a href="{{ path('principal') }}"><img src="{{ asset('Imagenes/logo.png') }}" alt=""></a>
         </figure>
@@ -53,6 +54,7 @@
             {% endif %}
         </div>
     </nav>
+    <p id="menu" class="menuHamburguesa"><i class="fa-solid fa-bars"></i></p>
     <div class="contenido">
         {% for type,messages in app.flashes %}
             {% for message in messages %}

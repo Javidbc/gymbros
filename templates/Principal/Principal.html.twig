@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheets %}
     <link href="{{ asset('Css/Principal.css') }}" type="text/css" rel="stylesheet" />
+    <script src="{{ asset('Scripts/principal.js') }}"></script>
 {% endblock %}
 
 
@@ -10,23 +11,49 @@
         <script src="{{ asset('Scripts/activado.js') }}"></script>
     {% else %}
         <div class="cuerpo">
-            <h1>Bienvenido a GYMBROS, tu gimnasio de confianza</h1>
-            <div class="fila">
-                <figure>
-                    <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
-                </figure>
-                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+            <figure class="cabecera">
+                <p class="principal_titulos principal_arriba">Bienvenido a gymBros</p>
+                <p class="principal_titulos principal_abajo">Entrena con nosotros para ser un verdadero gymbro</p>
+            </figure>
+
+            <div class="separador"></div>
+            <div class="separador"></div>
+
+            <h2 class="principal_subTitulo">Conoce nuestras instalaciones</h2>
+            <div class="carrusel">
+                <p id="btnIzquierda" class="flechas"><i class="fa-solid fa-arrow-left"></i></p>
+                <img id="fotoCarrusel" class="imgCarrusel" src="{{ asset('Imagenes/maquinas1.jpg') }}" alt="">
+                <p id="btnDerecha" class="flechas"><i class="fa-solid fa-arrow-right"></i></p>
             </div>
+
+            <div class="separador"></div>
+            <div class="separador"></div>
+
+            <h2 class="principal_subTitulo">¡¡Utiliza nuestra web!!</h2>
             <div class="fila">
-                <iframe src="https://www.youtube.com/embed/MY_gyv3ZDLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
+                <ul class="principal_funciones">En ella podrás:
+                    <li><i class="icono_lista fa-solid fa-check"></i> ¡Guardar las series dia a dia!</li>
+                    <li><i class="icono_lista fa-solid fa-check"></i> ¡Ver tu progreso a lo largo del tiempo!</li>
+                    <li><i class="icono_lista fa-solid fa-check"></i> ¡Crear tus propias tablas personalizadas o ver las recomendadas por el monitor!</li>
+                    <li><i class="icono_lista fa-solid fa-check"></i> ¡Reservar las máquinas que vayas a utilizar para no perder tiempo!</li>
+                    <li><i class="icono_lista fa-solid fa-check"></i> ¡Descrubir un amplio abanico de ejercicios que añadir a tu rutina!</li>
+                </ul>
+                <img src="{{ asset('Imagenes/genteEntrenando.webp') }}" alt="">
             </div>
+
+            <div class="separador"></div>
+            <div class="separador"></div>
+
+            <h2 class="principal_subTitulo">¡¡Localizanos!!</h2>
             <div class="fila">
-                <p>En nuestro gimnasio podrás encontrar una gran variedad de máquinas con las que poder ejercitar tu cuerpo, además de una gran comunidad y apoyo entre los miembros</p>
-                <figure>
-                    <img src="{{ asset('Imagenes/gym1.jpg') }}" alt="">
-                </figure>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3139.6892466773497!2d-3.7866460488276856!3d38.100896501002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6c2633321b1a99%3A0x612788ed24fef1f!2sProl.%20Juan%20Salcedo%20Guill%C3%A9n%2C%2023710%20Bail%C3%A9n%2C%20Ja%C3%A9n!5e0!3m2!1ses!2ses!4v1655806230294!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+            <div class="fila2">
+                <p>Contacta con nosotros, visítanos o bien hablanos por correo o llama a nuestro teléfono</p>
+                <p><i class="fa-solid fa-envelope"></i> javierdelbas@gmail.com</p>
+                <p><i class="fa-solid fa-mobile-screen"></i> 648446124</p>
+            </div>
+
         </div>
     {% endif %}
 {% endblock %}

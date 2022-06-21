@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded",principal);
 
 function principal(){
     document.getElementById("btnMagia").addEventListener("click",cambiar);
-    document.getElementById("btnMagia2").addEventListener("click",cambiar2);
+    /*document.getElementById("btnMagia2").addEventListener("click",cambiar2);*/
 }
 
 function cambiar(e){

@@ -202,3 +202,9 @@ tr{
     background-color: rgba(225, 80, 80, 0.78);
     color: red;
 }
+
+@media screen and (max-width:420px){
+    th{
+        font-size: 1.1em;
+    }
+}

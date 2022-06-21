@@ -1,17 +1,117 @@
 
-.cuerpo{
-    padding: 1em;
+.cabecera{
+    background-image: url("../Imagenes/pesoMuerto.webp");
+    height: 50vh;
+    background-position: center;
+    margin-bottom: 1em;
+}
+.principal_titulos{
+    color: #fdfffa;
+    position: relative;
+    display: inline;
+    font-style: oblique;
+
+
+}
+.principal_arriba{
+    font-family: Algerian;
+    font-size: 4em;
+    left: 50%;
+    top:30%
+}
+.principal_abajo{
+    left: auto;
+    text-align: center;
+    top:60%;
+    max-width: 30px;
+    font-size: 2.5em;
+    font-family: Rockwell;
+
+}
+.separador{
+    height: 5px;
+    width: 100%;
+    background-color: #462467;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+.principal_subTitulo{
+    font-size: 2em;
+    margin-top: 1em;
+    margin-bottom:1em ;
+    text-align: center;
+}
+.carrusel{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 3em;
+    height: 500px;
+    background-color: rgba(208, 200, 252, 0.63);
+}
+.carrusel img{
+    max-width: 700px;
+}
+.flechas{
+    font-size: 2em;
+    background-color: white;
+    filter: drop-shadow(2px 2px 2px);
+    border-radius: 0.7em;
+    padding: 0.3em;
+    color: #462467;
+}
+.flechas:hover{
+    filter: drop-shadow(0 0 0);
+    background-color: #d7d7d7;
+}
+.imgCarrusel{
+    border-radius: 2em;
+    padding: 0.3em;
+    background-color: white;
+    filter: drop-shadow(5px 5px 2px #462467);
 }
 .fila{
     display: flex;
-    justify-content: space-evenly;
-    padding: 2em;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2em;
 }
-.fila iframe{
-    min-width: 560px;
-    min-height: 315px;
+.fila2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.fila p{
-    font-size: 1.3em;
-    margin-left: 2em;
+.fila2 p{
+    margin-bottom: 0.4em;
+    margin-top: 0.4em;
 }
+.fila img{
+    width: 30%;
+}
+.icono_lista{
+    color: green;
+}
+.principal_funciones{
+    flex-direction: column;
+    font-size: 1.8em;
+    font-style: italic;
+    font-family: Rockwell;
+}
+.principal_funciones li{
+    font-size: 0.7em;
+}
+
+@media screen and (max-width:420px){
+    .principal_arriba{
+        font-size: 2em;
+        left: auto;
+    }
+    .principal_abajo{
+        font-size: 1.5em;
+    }
+    .carrusel img{
+        max-width: 250px;
+    }
+}
+

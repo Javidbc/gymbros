@@ -22,3 +22,8 @@ table{
     filter:drop-shadow(0px 0px 0px);
     color: #668622;
 }
+@media screen and (max-width:420px){
+    td{
+        font-size: 1em;
+    }
+}

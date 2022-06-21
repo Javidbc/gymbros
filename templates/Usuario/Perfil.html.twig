@@ -5,7 +5,6 @@
 
 {% block content %}
         <h1>Aquí puedes editar tu perfil, {{ usuario.nombre }}</h1>
-        <img class="perfil" src="{{ app.user.brochureFilename }}" alt="">
     <div class="cajaForm">
         {{ form_start(form) }}
         {{ form_widget(form) }}

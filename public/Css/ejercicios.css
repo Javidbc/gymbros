@@ -14,6 +14,7 @@
     transition: 1s;
 
 }
+
 .carta:hover{
     transition: 1s;
     filter: drop-shadow(10px 10px 5px grey);
@@ -63,5 +64,10 @@ iframe{
 .carta_iconos{
     display: flex;
     justify-content: center;
+}
+@media screen and (max-width:420px){
+    .carta{
+        width: 90%;
+    }
 }
 
