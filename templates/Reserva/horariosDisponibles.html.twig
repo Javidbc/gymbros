@@ -30,8 +30,10 @@
                 {% endfor %}
             </div>
         {% endif %}
+        <div class="cajaBoton">
+            <a href="{{ path('reservas_listar') }}" class="btnVolver">Volver a las reservas</a>
+        </div>
 
-        <a href="{{ path('reservas_listar') }}" class="btnVolver">Volver a las reservas</a>
     </div>
 
 {% endblock %}

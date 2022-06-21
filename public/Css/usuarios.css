@@ -65,13 +65,9 @@ h3{
     padding-right: 2em;
 }
 
-.cajaReservas{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
-}
 .cajaReserva{
     display: flex;
+    flex-direction: row;
     padding-bottom: 0.5em;
     align-items: center;
     margin-left: 1em;

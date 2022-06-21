@@ -71,7 +71,8 @@ class EjercicioType extends AbstractType
             ->add('aparatos',EntityType::class,[
                 'label'=>'Elige uno o varios aparatos al que asociarlo',
                 'class'=>Aparato::class,
-                'multiple'=>true
+                'multiple'=>true,
+                'required'=>false
             ])
             /*->add('aparatos',Select2EntityType::class,[
                 'label'=>'Elige uno o varios aparatos al que asociarlo',
