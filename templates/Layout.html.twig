@@ -13,10 +13,10 @@
             {% if is_granted('ROLE_USER') %}
             <ul>
                 <li><a href="{{ path('ejercicios_listar') }}"><i class="fa-solid fa-dumbbell"></i>Ejercicios</a></li>
-                {% if is_granted('ROLE_USER') %}
-                    <li><a href="{{ path('tablas_listarUser',{'usuario':app.user.id }) }}"><i class="fa-solid fa-table-list"></i>Tablas</a></li>
-                {% else %}
+                {% if is_granted('ROLE_MONITOR') %}
                     <li><a href="{{ path('tablas_listar') }}"><i class="fa-solid fa-table-list"></i>Tablas</a></li>
+                {% else %}
+                    <li><a href="{{ path('tablas_listarUser',{'usuario':app.user.id }) }}"><i class="fa-solid fa-table-list"></i>Tablas</a></li>
                 {% endif %}
                     <li><a href="{{ path('series_calendario') }}"><i class="fa-solid fa-calendar-days"></i>Calendario</a></li>
                 {% if app.user.miTabla == null %}

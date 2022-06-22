@@ -203,15 +203,17 @@ class UsuarioController extends AbstractController
         $usuario->setMiTabla($tabla);
         $usuarioRepository->save();
 
-
-        return $this->redirectToRoute("tablas_listar");
+        if($usuario->isEsMonitor()==true)
+            return $this->redirectToRoute('tablas_listar');
+        else
+            return $this->redirectToRoute('tablas_listarUser',['usuario'=>$usuario->getId()]);
     }
 
     /**
      * @Route("/usuario/cambioContra", name="usuarios_cambioContra")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function cambiarCon(Request $request, UsuarioRepository $usuarioRepository, UserPasswordEncoderInterface $passwordEncoder): Response
+    public function cambiarContra(Request $request, UsuarioRepository $usuarioRepository, UserPasswordEncoderInterface $passwordEncoder): Response
     {
         $form = $this->createForm(CambioContraType::class, $this->getUser());
         $form->handleRequest($request);

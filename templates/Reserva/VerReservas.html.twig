@@ -55,11 +55,11 @@
             <table>
                 <thead>
                 <tr>
-                    <th>
                         {% if is_granted('ROLE_MONITOR') %}
+                    <th>
                             Usuario
-                        {% endif %}
                     </th>
+                        {% endif %}
                     <th>Maquina</th>
                     <th>Horario</th>
                     <th>Fecha</th>
@@ -70,7 +70,9 @@
                 {%  for reserva in reservas %}
                     {% if (reserva.usuario == app.user) or (is_granted('ROLE_MONITOR')) %}
                     <tr class="filaUsuarios">
+                    {% if is_granted('ROLE_MONITOR') %}
                         <td>{{ reserva.usuario }}</td>
+                        {% endif %}
                         <td>{{ reserva.maquina }}</td>
                         <td>{{ reserva.horario }}</td>
                         <td>{{ reserva.fechaReserva|date("d/m/Y") }}</td>
